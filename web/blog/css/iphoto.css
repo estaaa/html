@@ -1,0 +1,41 @@
+@media only screen and (max-width:750px){
+	#header .nav-cen ul{
+		display: none;
+	}
+	#header .nav-cen .img{
+		background-position: center left !important;
+	}
+	#content .con-cen .left .pro h1{
+		text-align: left !important;
+		padding-left: 14px;
+	}	
+	#content .con-cen .left .pro h1 a{
+		color:#d2322d !important;
+		font-size: 18px !important;
+		font-weight: 400;
+	}
+	#content .con-cen .left .pro .tally{
+		display: none;
+	}
+	#content .con-cen .left .pro .look{
+		display: block !important;
+	}
+	#content .con-cen .left .pro h1{
+		padding-top: 15px !important;
+	}
+	#content .con-cen .left .pro .read{
+		text-align: center !important;
+		background:#d9534f;
+		padding:0 !important;
+		margin:20px 0px 20px 14px;
+		
+	}
+	#content .con-cen .left .pro .read a{
+		background:none !important;
+		
+	}
+	#content .con-cen .left .pro .read:hover{
+		background:#D2322D;
+        transition: all 0.2s ease-in-out 0s;
+	}
+}

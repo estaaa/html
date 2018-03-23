@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>密码修改</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/private.css">
+    <script type="text/javascript" src="__STATIC__/Js/jquery-1.7.2.min.js"></script>
+</head>
+
+
+
+
+
+
+
+
+
+<body>
+    <div id="header">
+        <div class="cen">
+            <div class="nav">
+                <span></span>
+                <h1>我的华为帐号</h1>
+                <p><a href="" class="bor">{$hd.session.username}</a><a href="{:U('Home/Index/close')}">退出</a></p>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div class="cen">
+            <div class="user">
+            <form action="javascript:;" method="post" enctype='multipart/form-data'>
+                
+                
+            
+               
+                <div class="right"  style="width:1000px; margin:100px auto;padding:0;">
+                <div class="content"  style="width:340px; margin:0 auto;">
+                    <p><span style="color:red;padding-left: 40px;width:400px;text-align: left;" id="error"></span></p>
+                    <p><span>旧密码：</span><input type="password" name="oldpassword" <if condition="$notUid"> value="{$notUid.nickname}"</if>><a href=""></a></p>
+                    <p><span>新密码：</span><input type="password" name="password" <if condition="$notUid"> value="{$notUid.emli}"</if>><a href=""><i></i></a></p>
+                    <p><span>确认密码：</span><input type="password" name="passwd" <if condition="$notUid"> value="{$notUid.iphoto}"</if>><a href=""><i></i></a></p>
+                   
+                   
+                    <input type="hidden" name="user_uid" value="{$Think.session.uid}">
+                    <p class="last"><span><input type="submit" name="" value="保存" style="border:none;background: none;text-align: center;width:120px;height:30px;line-height: 30px;color:#fff;padding:0;margin:0;font-size: 14px;font-family: '微软雅黑'"></span><span>取消</span></p>
+                </div>
+                    
+                </div>
+                </form>
+            </div>
+    
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('form').submit(function(){
+            var data = $(this).serialize();
+            $.ajax({
+                url:'__ACTION__',
+                type:'post',
+                data:data,
+                dataType:'json',
+                success:function(phpData){
+                    if(phpData==1) return error('旧密码不能为空');
+                    if(phpData==2) return error('新密码不能为空');
+                    if(phpData==3) return error('确认密码不能为空');
+                    if(phpData==4) return error('旧密码不正确');
+                    if(phpData==5) return error('新密码两次输入不一致');
+                    if(phpData==6) return error('密码长度最少为6位');
+                    error('修改成功');
+                    localtion.href="{:U(Home/Index/index)}";
+
+                    
+                }
+            })
+        })
+    function error(error){
+        $('#error').stop().fadeIn(300);
+        $('#error').html(error);
+        setTimeout(function(){
+        $('#error').fadeOut(300);
+        },500)
+    }
+    </script>
+</body>
+</html>

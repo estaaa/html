@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>添加图片</title>
+<link href="__VIEW__/Category/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__VIEW__/Category/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__VIEW__/Category/js/jquery.js"></script>
+<script type="text/javascript" src="__VIEW__/Category/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="__VIEW__/Category/js/select-ui.min.js"></script>
+<!-- <script type="text/javascript" src="__VIEW__/Category/editor/kindeditor.js"></script> -->
+<style type="text/css" media="screen">
+    .forminfo li{
+        float:left;
+        clear: none;
+    }
+
+</style>
+
+  
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $(".select1").uedSelect({
+		width : 220			  
+	});
+	$(".select2").uedSelect({
+		width : 167  
+	});
+	$(".select3").uedSelect({
+		width : 100
+	});
+});
+
+$(function(){
+    
+    // 点击
+    $('.add-img').live('click',function(){
+        // 先获得父级盒子
+        var fileData = $(this).parents('.box-file').clone();
+        // 插入
+        $(this).parents('.box-file').after(fileData);
+    })
+  
+})
+</script>
+<style type="text/css" media="screen">
+
+</style>
+</head>
+
+<body>
+
+
+    
+    <div class="formbody">
+    
+    
+    <div id="usual1" class="usual"> 
+    
+    <div class="itab">
+  	<ul> 
+    <li><a href="#tab1" class="selected">添加图片</a></li>
+  	</ul>
+    </div> 
+    
+  	<div id="tab1" class="tabson">
+    
+    <form action="" method="post" enctype='multipart/form-data'>
+    
+    
+    <ul class="forminfo" style="width:800px;margin:0 auto;">
+    <div class="box-file" style="width:800px;height:230px;">
+        <li id="img_box" style="float:left;">
+        
+            <img id="img"  <if value="$allUser['thumb']"> src="__ROOT__/{$allUser.thumb}" <else/> src="__STATIC__/images/adminlogo3.jpg" </if> >
+            <span id="file">上传图片</span>
+
+            <input type="file" id="thumb" name="img[]" <if value="$allUser['thumb']"> value="{$allUser.thumb}"</if>>
+            图片大小为980*400 
+        </li>
+
+        <li style="width:240px;float:left;padding-top:120px;padding-left:10px;"><label>图片地址</label><input name="url[]" type="text" class="dfinput" value=""  style="width:218px;"/></li>
+        <li style="width:100px;float:left;padding-top:155px;"><label style='background: #4198CA;color:#fff;font-size: 14px;text-align: center;cursor:pointer;' class="add-img">添加一个</label></li>
+    </div>
+    
+
+
+    
+    
+    
+
+    
+    
+
+
+   
+    <li style="width:800px;margin-top:30px;"><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认添加"/></li>
+    </ul>
+    </form>
+    </div> 
+    
+    
+  	<div id="tab2" class="tabson">
+    
+    
+
+    
+ 
+    
+   
+  
+    
+    </div>  
+       
+	</div> 
+ 
+	<script type="text/javascript"> 
+      $("#usual1 ul").idTabs(); 
+    </script>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	</script>
+    
+    
+    
+    
+    
+    </div>
+
+
+</body>
+
+</html>

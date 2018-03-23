@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title></title>
+	<link rel="stylesheet" href="{hd $smarty.const.__PUBLIC__}/Css/public.css" />
+	<script type="text/javascript" src="{hd $smarty.const.__PUBLIC__}/Js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="{hd $smarty.const.__PUBLIC__}/Js/public.js"></script>	
+</head>
+
+<body>
+	<table class="table">
+		<tr>
+			<td class="th" colspan="20">用户列表</td>
+		</tr>
+		<tr class="tableTop">
+			<td class="tdLittle1">ID</td>
+			<td>用户名</td>
+			<td>回答数</td>
+			<td>被采纳数</td>
+			<td>提问数</td>
+			<td>金币</td>
+			<td>经验</td>
+			<td>最后登录时间</td>
+			<td>最后登录IP</td>
+			<td>注册时间</td>
+			<td>帐号状态</td>
+			<td>操作</td>
+		</tr>
+		{hd section loop=$userform name=num}
+		<tr>
+			<td>{hd $userform[num].uid}</td>
+			<td>{hd $userform[num].username}</td>
+			<td>{hd $userform[num].answer}</td>
+			<td>{hd $userform[num].accept}</td>
+			<td>{hd $userform[num].ask}</td>
+			<td>{hd $userform[num].point}</td>
+			<td>{hd $userform[num].exp}</td>
+			<td>{hd $userform[num].logintime}</td>
+			<td>{hd $userform[num].loginip}</td>
+			<td>{hd $userform[num].restime}</td>
+			<td>{hd $userform[num].lock}</td>
+			<td><a href="{hd $smarty.const.__APP__}?c=list&a=user_list&uid={hd $userform[num].uid}">删除</a></td>
+		</tr>
+		{hd /section}
+	</table>
+
+</body>
+</html>

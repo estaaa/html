@@ -1,0 +1,85 @@
+<include file="Public:header" />
+<script src="__PUBLIC__/Js/user.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/Js/privata.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/user.css">
+<include file="Public:left" />
+<div id="user-right">
+         <!-- 我的评价 -->
+                <div id="user-refund">
+                    <div class="header">
+                        <span>商品评价</span><!-- <a href="" class="clo">三个月之前商品</a><a href="">最近三个月商品</a> -->
+                    </div>
+                    <div class="no-payment">
+                      <p><span style="width:300px">商品标题</span><span style="width:300px">评价内容</span><span style="width:300px">操作</span></p>
+                      <volist name="appData" key="k" id="v">
+                      <div class="payment-box">
+                        
+                        <div class="k kd" style="width:300px"><a href="">{$v.p_title}</a></div>
+                        <div class="k kd2" style="width:300px"><a href="">{$v.app_content}</a></div>
+                        <div class="k kd3" style="width:300px"><a href="{:U('Home/User/del',array('app_id'=>$v['app_id']))}">删除</a></div>
+                       
+                      </div>
+                      </volist>
+                    </div>
+                    
+                </div>
+              <!-- 我的评价end -->
+
+
+
+
+            </div>
+        </div>
+      </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 底部区域 -->
+
+       <include file="Public:flooter" />
+        </body>
+        </html>

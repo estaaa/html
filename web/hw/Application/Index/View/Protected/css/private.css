@@ -1,0 +1,176 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+img {
+  border: none;
+}
+/* 头部 */
+#header {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background: #CA151E;
+}
+#header .cen {
+  width: 1000px;
+  height: 100px;
+  margin: 0 auto;
+}
+#header .cen .nav {
+  height: 100px;
+  position: relative;
+}
+#header .cen .nav span {
+  display: block;
+  position: absolute;
+}
+#header .cen .nav h1 {
+  font-size: 28px;
+  line-height: 100px;
+  float: left;
+  width: 300px;
+  color: #fff;
+  font-weight: 400;
+  padding-left: 120px;
+  background: url(../images/uc_logo.png) no-repeat;
+  background-position: 55px 25px;
+}
+#header .cen .nav p {
+  padding: 0 20px;
+  line-height: 100px;
+  font-size: 12px;
+  float: right;
+}
+#header .cen .nav p a {
+  text-decoration: none;
+  color: #fff;
+  padding: 0 8px;
+}
+#header .cen .nav p a.bor {
+  border-right: 2px solid #fff;
+}
+/* 头部结束 */
+#main {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background: #F2F2F2;
+}
+#main .cen {
+  width: 1000px;
+  margin: 0 auto;
+}
+#main .cen .user {
+  margin-top: 30px;
+  background: #fff;
+  width: 1000px;
+  height: 500px;
+  box-shadow: 2px 2px 10px #909090;
+}
+#main .cen .user .left {
+  float: left;
+  width: 170px;
+  height: 500px;
+  padding-left: 40px;
+  position: relative;
+}
+#main .cen .user .left img {
+  position: absolute;
+  height: 160px;
+  width: 160px;
+  top: 70px;
+  left: 40px;
+}
+#main .cen .user .left span {
+  position: absolute;
+  height: 30px;
+  width: 160px;
+  top: 210px;
+  left: 40px;
+  background: #B8B8B8;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+}
+#main .cen .user .left input {
+  position: absolute;
+  height: 30px;
+  width: 160px;
+  top: 210px;
+  left: 40px;
+  opacity: 0;
+}
+#main .cen .user .right {
+  height: 500px;
+  width: 700px;
+  float: left;
+  padding-top: 70px;
+  padding-left: 30px;
+}
+#main .cen .user .right .content {
+  width: 700px;
+}
+#main .cen .user .right .content p {
+  width: 700px;
+  height: 30px;
+  margin-bottom: 10px;
+}
+#main .cen .user .right .content p s {
+  display: block;
+  font-size: 12px;
+  color: red;
+  float: left;
+  line-height: 25px;
+  padding: 0 5px;
+  font-style: normal;
+}
+#main .cen .user .right .content p a {
+  display: block;
+  font-size: 12px;
+  color: #28c0c6;
+  float: left;
+  line-height: 25px;
+  padding-right: 30px;
+  position: relative;
+}
+#main .cen .user .right .content p a i {
+  display: block;
+  height: 19px;
+  width: 19px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  background: url(../images/icon_1.png);
+}
+#main .cen .user .right .content p span {
+  display: block;
+  float: left;
+  font-size: 14px;
+  width: 100px;
+  font-family: "微软雅黑";
+  text-align: right;
+  line-height: 25px;
+}
+#main .cen .user .right .content p input {
+  border: none;
+  border: 1px solid #ACACAC;
+  border-radius: 5px;
+  height: 25px;
+  float: left;
+  margin-left: 10px;
+}
+#main .cen .user .right .content p.last span {
+  width: 120px;
+  height: 30px;
+  font-size: 14px;
+  background: #CA151E;
+  border-radius: 4px;
+  text-align: center;
+  color: #fff;
+  margin-left: 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  line-height: 30px;
+}

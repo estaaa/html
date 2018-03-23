@@ -1,0 +1,474 @@
+<include file="Public:header" />
+<script src="__PUBLIC__/Js/content.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="__PUBLIC__/Css/content.css">
+
+
+
+
+
+
+
+<!-- 内容页 主大区 -->
+<!-- 导航区域 -->
+       <div id="list-nav">
+           <div class="cen">
+               <ul>
+                   <li class="list-cate all">
+                        <s></s>
+                        <a href="">全部商品</a>
+                        <!-- 二级导航菜单*************************************************** -->
+                        <div class="left">
+                         <volist name="fatherData" key="k" id="v">
+                            <!-- 导航区域 -->
+                            <div class="nav">
+                                <s></s>
+                                <h1><a href="{:U('Home/List/index',array('cid'=>$v['cid']))}">{$v.ctitle}</a></h1>
+                                <ul>
+                                   <volist name="v['son']" id='n' offset="0" length='3'>
+                                    <li><a href="{:U('Home/List/index',array('cid'=>$n['cid']))}">{$n.ctitle}</a></li>
+                                   </volist>
+                                </ul>
+                                <div class="list">
+                                    <div class="cate">
+                                       <volist name="v['son']" id='n' offset="3">
+                                        <a href="{:U('Home/List/index',array('cid'=>$n['cid']))}">{$n.ctitle}</a>
+                                       </volist>
+                                    </div>
+                                    <div class="pop">
+                                        <p>推荐商品</p>
+                                        <volist name="v['sustain']" key="kk" id="vv">
+                                        <a href="{:U('Home/Content/index',array('pro_id'=>$vv['pro_id']))}" style="font-size:12px;height:16px;line-height: 16px;overflow:hidden;width:150px;padding:0px;text-align: left;margin:10px 0;">{$vv.p_title}</a>
+                                       </volist>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 导航区域结束 -->
+                            </volist>
+                        </div>
+            <!-- 二级导航菜单end*************************************************** -->
+                    </li>
+                   <li class="list-cate frist"><a href="{:U('Home/Index/index')}">首 页</a></li>
+                   <volist name="fatherData" key="k" id="v">
+                    <li  class="list-cate"><a href="{:U('Home/List/index',array('cid'=>$v['cid']))}">{$v.ctitle}</a></li>
+                    </volist>
+               </ul>
+           </div>
+       </div>
+       <!-- 导航区域结束 -->
+
+
+
+<!-- 内容 主大区-->
+
+<div id="content-main">
+    <div class="center">
+        <!-- 头部小导航 -->
+        <div class="top-nav">
+            <a href="">首页&nbsp</a>>
+            <a href="" class="last">{$proData.p_title}</a>
+        </div>
+        <!-- 头部小导航结束 -->
+
+
+        <!-- 放大镜区域 -->
+        <div class="show">
+
+            <div class="left">
+
+                <div class="small">
+                <volist name="proData['medium']"  id="v">
+                <img src="__ROOT__/{$v}" <if condition="$key eq 0"> style="display:block;"</if>>
+                </volist>
+                    <div class="box"></div>
+                    <div class="cover"></div>
+                </div>
+
+                <div class="big">
+                    <volist name="proData['big']" id="v">
+                        <img src="__ROOT__/{$v}" <if condition="$key eq 0"> style="display:block;"</if>>
+                    </volist>
+                </div>
+                <div class="lunbo">
+                        <s class="lico"></s>
+                        <s class="rico"></s>
+                        <div class="pad">
+                        <volist name="proData['smallimg']"  id="v">
+                            <a href="javascript:;"><img src="__ROOT__/{$v}" alt="" /></a>
+                        </volist>
+                         </div> 
+                </div>
+            </div>
+
+
+            <div class="right">
+            <form action="javascript:;" method="post">
+                <div class="top">
+                     <h1>{$proData.p_title}</h1>
+                    <h2>{$proData.pro_des}</h2>
+                </div>
+                <div class="pic">
+                    <p>华 为  价：<b>¥ {$proData.p_cost}</b></p>
+                    <present name="$proData['give'][0]">
+                    
+                    <div class="news">
+                        <span>优惠信息：</span>
+                        <p>
+                            <volist name="proData['give']" id="v">
+                            <a href="">{$v}</a>
+                            </volist>
+                        </p>
+                     </div>
+                     </present>
+                    <p>商品编码：{$proData.p_code}</p>
+                    <p>商品评分：共 {$num} 条评论</p>
+                    <p>运      费：满 100 免运费</p>
+                    <p>服      务：由华为商城负责发货，并提供售后服务</p>
+                </div>
+            
+                <div class="combo">
+                <volist name="spec" id="v">
+               
+                    <div class="zhi spec-box">
+
+                        <span>{$v.stitle}：</span>
+                        <P>
+                        <volist name="v['content']" id="vv">
+                       
+                        <a href="javascript:;" class="zhishi <if condition='$key eq 0'>fly</if>" value="{$vv.attid}"  >{$vv.avalue} <s></s></a>
+                        <input type="hidden" name="attid[]" value="{$vv.attid}">
+                     
+                       
+                        </volist>
+                        </P><br/>
+                        
+                    </div>
+                  
+                </volist>
+                    
+                    <div class="zhi buy-num">
+                        <span>购买数量：</span>
+                        <p>
+
+                            <a href="javascript:;" class="minus">-</a>
+                            <a href="javascript:;" class="num"><input type="text" name="buy_num" value="1"></a>
+                            <a href="javascript:;" class="plus">+</a>
+                           
+                        </p>
+                    </div>
+                </div>
+                <div class="hint">
+                    <p>您选择了<span class='zhiht'>移动标准版套餐</span></p>
+                </div>
+                <div class="buyinfo">
+                    <s class="clo">
+                        
+                    </s>
+                    <div class="buy_left">
+                        <s></s>
+                    </div>
+                    <div class="buy_right">
+                        <p class='buy_title1' style="width:120px;height:20px;overflow: hidden;"></p>
+                        <p class='buy_title2'>成功加入购物车!</p>
+                        <p class='buy_title3'>购物车中共 <span class="phpNum">3</span> 件商品，金额合计 <span>¥ <span class="phpPic">2664.00</span></span></p>
+                        <p class='buy_title4'><a href="{:U('Home/Address/index')}">去结算</a><a href="{:U('Home/Index/index')}">继续逛>></a></p>
+                    </div>
+                </div>
+               <!--  <div class="but">
+                   <input type="submit" name="buy" value="立即购买">
+                   <s></s>
+               </div> -->
+                <div class="but but1">
+                    <input type="submit" name="buyinfo" value="加入购物车">
+                    <s></s>
+                </div>
+                </form>
+            </div>
+        </div>
+        <!-- 放大镜区域end -->
+
+<!-- 
+推荐搭配
+<div id="match">
+    <div class="nav">
+        <span>推荐搭配</span>
+        <s></s>
+    </div>
+    <div class="cen">
+        <div class="box">
+            <a href=""><img src="" alt="" /></a>
+            <span>华为价：¥2299.00</span>
+            <a href="" class="tit">华为 荣耀6 Plus 标准版 双卡双待双通 移动4G 16GB存储（白色）套餐版</a>
+            <i></i>
+        </div>
+    </div>
+</div>
+推荐搭配结束
+ -->
+
+
+<div class="review">
+<!-- 左侧区域 -->
+    <div class="left">
+
+
+
+    <!-- 热卖区 -->
+        <div class="hot hot-ico">
+            <h3><span>热销榜单</span></h3>
+            <volist name="moreNum" id="v" offset="0" length='6'>
+            <!-- 盒子 -->
+            <div class="box">
+                <s></s>
+                <p class="hot-img"><a href="{:U('Home/Content/index',array('pro_id'=>$v['pro_id']))}"><img src="__ROOT__/{$v.list_img}" alt="13434" /></a></p>
+                <p class="hot-tit"><a href="{:U('Home/Content/index',array('pro_id'=>$v['pro_id']))}" style="height:40px;overflow:hidden;">{$v.p_title}</a><span>¥{$v.p_cost}</span></p>
+            </div>
+            <!-- 盒子结束 -->
+            </volist>
+           
+
+        </div>
+    <!-- 热卖区 end-->
+
+        <!-- 最近浏览 -->
+        <div class="hot browse flo_img">
+            <h3><span>最近浏览</span><s></s></h3>
+            <volist name="history" id="v" offset="0" length='6'>
+            <!-- 盒子 -->
+            <div class="box">
+                <s></s>
+                <p class="hot-img"><a href="{:U('Home/Content/index',array('pro_id'=>$v['pro_id']))}"><img src="__ROOT__/{$v.list_img}" alt="" /></a></p>
+                <p class="hot-tit"><a href="{:U('Home/Content/index',array('pro_id'=>$v['pro_id']))}" style="height:40px;overflow:hidden;">{$v.p_title}</a><span>¥{$v.p_cost}</span></p>
+            </div>
+            <!-- 盒子结束 -->
+           </volist>
+        </div>
+        <!-- 最近浏览结束 -->
+
+
+
+
+
+
+    </div>
+<!-- 左侧区域结束 -->
+
+
+<!-- 右侧内容区域 -->
+    <div class="right">
+        <div class="con-nav">
+            <p>
+                <span class="frist">商品详情</span>
+                <span>用户评价（<b><present name="num">{$num}<else/> 0</present></b>）</span>
+                <span>规格参数</span>
+                <span>包装清单</span>
+                <span>售后服务</span>
+                <span class="last"></span>
+            </p>
+        </div>
+        <!-- 内容区 -->
+
+        <div class="count">
+            <!-- 商品详情 -->
+            <div class="details click" style="display:block">
+               {$proData.pro_content}
+            </div>
+            <!-- 商品详情结束 -->
+            
+            <!-- 用户评价 -->
+            <div class="details evaluate click">
+                <present name="uid">
+                 <if condition="$isBuy eq 1">
+                <notpresent name="isapp">
+                 <div class="raise">
+                 <form action="javascript:;" method="post" accept-charset="utf-8" class='app'>
+                     <div class="text">
+                         <textarea name="app_content"></textarea>
+                     </div>
+                     <div class="appBtn">
+                         <input type="submit" name="" value="提交">
+                     </div>
+                     <input type="hidden" name="pro_id" value="{$hd.get.pro_id}">
+                 </form>
+                    
+                 </div>  </notpresent></if>
+                 </notpresent>
+                <volist name="appData" key="k" id="v">
+                <!-- 盒子 -->
+                    <div class="box">
+                        <div class="lc">
+                            <img <present name="$v['thumb']"> src="__ROOT__/{$v.thumb}" <else/> src="__CONTROLLER_VIEW__/images/content/77.png" </present> >
+                            <span>{$v.nickname}</span>
+                        </div>
+                        <div class="rc">
+                            <div class="haop">
+                               <!--  <s class="pl"></s> 
+                               <s class="ml" style="width:25px;"></s> 
+                               <i></i>
+                               <span>  4 分好评</span>
+                               <ul>
+                                   <li>好</li>
+                               </ul> -->
+                                <p>{$v.publish_time|date='Y-m-d H:i:s',###}</p>
+                            </div>
+                            <p>{$v.app_content}</p>
+                        </div>
+                    </div>
+                    <!-- 盒子结束 -->
+                </volist>
+
+
+            </div>
+            <!-- 用户评价end -->
+
+            <!-- 规格参数 -->
+            <div class="details click">
+              <table>
+                 
+                  <tbody>
+                  <volist name="content" key="k" id="v" >
+                      <tr>
+                          <td>{$v.stitle}</td>
+                          <td>{$v.avalue}</td>
+                      </tr>
+                  </volist>
+                  </tbody>
+              </table>
+            </div>
+            <!-- 包装清单 -->
+            <div class="details click">
+               {$proData.pack_list}
+            </div>
+
+             <!-- 售后服务 -->
+            <div class="details click">
+               {$proData.after_sale}
+            </div>
+        </div>
+        
+
+        <!-- 内容区结束 -->
+    </div>
+<!-- 右侧内容区域end -->
+
+
+
+</div>
+
+
+
+
+
+
+
+
+    </div>
+</div>
+<!-- 内容 主大区end-->
+<include file="Public:flooter" />
+
+
+
+    <script type="text/javascript" charset="utf-8">
+        $(function(){
+            // 最近浏览 图标 热销榜单
+            var hot = $('#content-main .center .review .left .hot-ico .box s');
+            var liulan = $('#content-main .center .review .left .flo_img .box s');
+            
+            
+            ico(liulan);
+            ico(hot);
+        
+        
+
+        })
+        function ico(path){
+            path.eq(1).css({backgroundPosition:'-33px 0px'});
+            path.eq(2).css({backgroundPosition:'-65px 0px'});
+            path.eq(3).css({backgroundPosition:'-99px 0px'});
+            path.eq(4).css({backgroundPosition:'-132px 0px'});
+            path.eq(5).css({backgroundPosition:'-165px 0px'});
+        }
+        // 隐藏最近浏览
+        $('#content-main .center .review .left .hot h3 s').click(function(){
+
+           $.ajax({
+             url:"{:U('closed')}",
+             type:'post',
+             data:{com:1},
+             dataType:'json',
+
+           })
+           $('.browse').hide();
+        })
+   
+        // 加入购物车
+        $('.but1').click(function(){
+            // 获得内容 是否是'库存已空'
+            if($('.zhiht').html()=='库存已空'){return;}
+            // 为了组合id 定义一个字符串
+            var specs = '';
+            $.each($('.fly'),function(){
+              specs += $(this).attr('value')+',';
+            })
+            // 获得购买数量
+            var buynum = $('input[name=buy_num]').val();
+            // alert('message')
+            // 发送AJAX
+            $.ajax({
+                url:"{:U('buyInfo',array('pro_id'=>$_GET['pro_id']))}",
+                type:'post',
+                data:{specs:specs,buynum:buynum},
+                dataType:'json',
+                success:function(phpdata){
+                    // 判断用户是否登陆
+                    if(phpdata==1){alert('您还未登陆');return;}
+                    // 给弹出的结算页面赋值
+                    $('.buy_title1').html(phpdata.name);
+                    $('.phpNum').html(phpdata.num);
+                    $('.phpPic').html(phpdata.total);
+                    // // 让按钮消失
+                    $('#content-main .center .show .right .but').hide();
+                    // // 让购物车显示
+                    $('.buyinfo').fadeIn();
+                    
+                    
+                }
+            })
+           
+        })
+
+    // 点击关闭购物车
+    $('.buyinfo .clo').click(function(){
+      $(this).parents('.buyinfo').hide();
+      $('#content-main .center .show .right .but').show();
+    })
+
+    // 提交评论
+    $('form.app').submit(function(){
+        var fromdata = $(this).serialize();
+        $.ajax({
+            url:"{:U('Home/Content/addraise')}",
+            type:'post',
+            data:fromdata,
+            dataType:'json',
+            success:function(phpData){
+                if(phpData==1){return alert('评价内容不能为空');}
+                $("#content-main .center .review .right .con-nav span b").html(phpData.num);
+                
+                var str='';
+                str+='<div class="box"><div class="lc">';
+                str+='<img src="__ROOT__/'+phpData.thumb+'"';
+                str+='<span>'+phpData.nickname+'</span></div><div class="rc"><div class="haop">';
+                str+='<p>'+phpData.publish_time+'</p></div>';
+                str+='<p>'+phpData.app_content+'</p></div></div>';
+                $('.raise').after(str);
+                // 提交成功就不能再评论了
+                $('.raise').hide();
+            }
+        })
+    })
+    
+    </script>
+        <!-- 底部区域结束 -->
+        </body>
+        </html>

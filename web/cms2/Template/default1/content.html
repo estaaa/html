@@ -1,0 +1,171 @@
+<include file="__TEMPLATE__/header" />
+
+
+
+
+
+<!-- body 主大区**************************************** -->
+<div style="min-height: 3433px;" role="main" id="main">
+
+
+
+
+
+
+
+
+
+<div id="content-box">
+  <div id="content">
+    <div class="place"> <a rel="home" title="返回 绿森移动健康科技 首页" href="">首页</a> ›
+
+     <a title="资讯" href="{$c48cms.ctitle}">{$c48cms.ctitle}</a> 
+
+     › {$c48cms.title}</div>
+
+
+
+    <article id="post-3305" role="article">
+    <div class="post-3305 post type-post status-publish format-standard has-post-thumbnail hentry category-news tag-70 tag-69 tag-65" id="article">
+
+
+
+
+            <h1 class="article-title post-title">{$c48cms.title}</h1>
+
+
+
+
+
+
+      <div class="article-info post-info">
+        <span class="icon author"></span><a href="">{$att.name}</a> 
+               <span class="icon cate"></span>
+
+               <a rel="category tag" href="{$c48cms.ctitle}">{$c48cms.ctitle}</a>
+                      <span class="icon date"></span>{$c48cms.sendtime|date:'Y-m-d H:m:s',@@}      
+                       <a href=""><span class="icon comment"></span> {$c48cms.total}</a>        <span class="icon view"></span>{$c48cms.click}  
+
+                                   </div>
+      <div class="article-content">
+
+    {$c48cms.content}
+        </div>
+
+
+
+
+
+      <div class="article-opt post-opt">
+        <span class="icon tag"></span>
+        <foreach from="$tag" key="$k" value="$v">
+            
+            <a rel="tag" href="{|U:'Index/List/index',array('tid'=>$v['tid'])}">{$v.tagname}</a>
+        </foreach>
+        
+       
+
+
+
+           </div>
+    
+      <div class="clear"></div>
+      <div class="relate-posts">
+  
+
+
+
+
+
+    </div>  
+
+
+        <div class="article-bottom-ad"><div id="admin-options-ad-文章页靠近相关文章的广告300x250-6287"></div></div>
+      <div class="clear"></div>
+            <div class="article-author">
+        <a href="http://magixtech.9o.re/user/1"><img width="60" height="60" calss="avatar" alt="" original="http://magixtech.9o.re/wp-content/uploads/2014/11/12.jpg"></a>
+        <div>作者：<a href="">{$att.name}</a> </div>
+        <div class="article-author-description">{我是否子戈，Web开发者，互联网评论人，微博@否子戈，一个不善言谈的人。GreenDemo是一个以资讯报道为主要功能的主题，我做它的主要目的，是希望能够帮朋友们快速建立自己的网站，并且免费提供一些必要的功能，让有这方面需要的朋友能够专注于内容，做出高质量的网站。}</div>
+        <div class="clear"></div>
+      </div>
+            <div id="comments">
+  <div id="comments-title">已有{$att.connum}条评论</div>
+
+
+
+
+
+
+
+  <ol id="comments-lists">
+
+
+<foreach from="$content" key="$k" value="$v">
+    <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1">
+  <div class="comment-box" id="comment-160">
+      <div class="comment-content">
+      <div class="comment-info">
+        <span class="info">{$v.username}</span>
+        <span class="info">{$v.addtime|date:"Y-m-d H:m:s",@@}</span>
+        <span class="float-right"><a aria-label="回复给否子戈" onclick="return addComment.moveForm( &quot;comment-160&quot;, &quot;160&quot;, &quot;respond&quot;, &quot;3305&quot; )" href="/post/3305.html?replytocom=160#respond" class="comment-reply-link"><span class="icon reply">
+        <span class="float-right comment-eidt-link"></span>
+      </div>
+      <div class="comment-text">
+      <p>{$v.comcon}</p>
+            </div>
+    </div>
+  </div>
+
+</li>
+ </foreach> 
+  </ol>
+  
+<div id="respond">
+    <form autocomplete="off" id="commentform" method="post" action="{|U:'comData'}">
+    <p>
+                </p><p><a style="display:none;" href="/post/3305.html#respond" id="cancel-comment-reply-link" rel="nofollow">取消</a></p>
+    <div id="comment-author-info">
+      
+    </div>
+        <p id="comment-text"><textarea id="comment" name="comcon"></textarea></p>  
+    <p>
+      <input type="hidden" name="article_aid" value="{$c48cms.article_aid}">
+      <input type="hidden" name="pid" value="{$c48cms.pid}">
+      <button class="btn btn-submit" type="submit" name="submit">提交</button>
+     
+      </p> </form>
+  </div><!--//end of respond-->
+
+</div>
+    </div>
+    </article>
+  </div>
+  </div>
+
+<!-- 左侧 -->
+
+<include file="__TEMPLATE__/right" />
+
+
+
+
+
+
+
+
+</div>
+<!-- 主大区 结束********************************************************************
+**********************************************************************
+******************************************************************
+**************************************************************
+*** -->
+
+
+
+
+<include file="__TEMPLATE__/flooter" />
+
+
+
+
+</body></html>

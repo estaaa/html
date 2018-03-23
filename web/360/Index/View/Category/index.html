@@ -1,0 +1,83 @@
+{hd include file='../Common/header.html'}
+<script type="text/javascript" src='{hd $smarty.const.__PUBLIC__}/Js/top-bar.js'></script>
+	<link rel="stylesheet" href="{hd $smarty.const.__PUBLIC__}/Css/list.css" />
+
+<!-- top 结束-->
+
+	<div id='location'>
+		<a href="{hd $smarty.const.__APP__}?c=category&cid=0">全部分类</a>
+			{hd section loop=$fatherData name=n}
+			&gt;&nbsp;
+				{hd if $smarty.section.n.last}
+					{hd $fatherData[n].title}
+					{hd else}
+			<a href="{hd $smarty.const.__APP__}?c=category&cid={hd $fatherData[n].cid}">{hd $fatherData[n].title}</a>
+					{hd /if}
+			&nbsp;&nbsp;
+			{hd /section}
+	</div>
+
+<!--------------------中部-------------------->
+	<div id='center'>
+		<div id='left'>
+			<div id='cate-list'>
+				<p class='title'>按分类查找</p>
+				<ul>
+				{hd foreach from=$sonData item=v}
+					<li>
+						<a href="{hd $smarty.const.__APP__}?c=Category&cid={hd $v.cid}">{hd $v.title}</a>
+					</li>
+				{hd /foreach}	
+				</ul>
+			</div>
+			<div id='answer-list'>
+				<ul class='ans-sel'>
+					<li {hd if $smarty.get.w==0} class='on' {hd /if}>
+						<a href="{hd $smarty.const.__APP__}?c=category&cid={hd $smarty.get.cid}&w=0">待解决问题</a>
+					</li>
+					<li {hd if $smarty.get.w==1} class='on' {hd /if}>
+						<a href="{hd $smarty.const.__APP__}?c=category&cid={hd $smarty.get.cid}&w=1">已解决</a>
+					</li>
+					<li {hd if $smarty.get.w==2} class='on' {hd /if}>
+						<a href="{hd $smarty.const.__APP__}?c=category&cid={hd $smarty.get.cid}&w=2">高悬赏</a>
+					</li>
+					<li {hd if $smarty.get.w==3} class='on' {hd /if}>
+						<a href="{hd $smarty.const.__APP__}?c=category&cid={hd $smarty.get.cid}&w=3">零回答</a>
+					</li>
+				</ul>
+				<!-- 待解决问题 -->
+				<table>
+					<tr>
+						<th class='t1'>标题</th>
+						<th>回答数</th>
+						<th>时间</th>
+					</tr>
+						{hd foreach from=$data item=v}
+						<tr>
+							<td class='t1 cons'>
+								<a href="{hd $smarty.const.__APP__}?c=answer&asid={hd $v.asid}">
+									<b>{hd $v.reward}</b>{hd $v.content}</a>&nbsp;&nbsp;{hd $v.title}
+							</td>
+							<td>{hd $v.answer}</td>
+							<td>{hd $v.time|date_format:"%y-%m-%d %H:%M:%S"}</td>
+						</tr>
+						{hd /foreach}
+						
+
+					<tr class='page'>
+						<td colspan='3'>
+							<a href="">1</a>
+							<a href="">2</a>
+							<a href="">3</a>
+						</td>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+
+		{hd include file='../Common/right.html'}
+	</div>
+<!--------------------中部结束-------------------->
+
+{hd include file='../Common/footer.html'}

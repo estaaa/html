@@ -1,0 +1,54 @@
+<!-- 左侧 -->
+<div id='left'>
+      <div class='userinfo'>
+         <dl>
+            <dt>
+               <a href=""><img src="{hd if $path}{hd $path}{hd else}{hd $smarty.const.__PUBLIC__}/Images/noface.gif{hd /if}" width='48' height='48' alt="占位符"/></a>
+            </dt>
+            <dd class='username'>
+               <a href=""><b>后盾网</b>
+               </a>
+               <a href="">
+                  <i class='level lv1' title='Level 1'></i>
+               </a>
+            </dd>
+            <dd>金币：<a href="" style="color: #888888;"><b class='point'>{hd $userr.point}</b></a></dd>
+            <dd>经验值：{hd $userr.exp}</dd>
+         </dl>
+         <table>
+            <tr>
+               <td>回答数</td>
+               <td>采纳率</td>
+               <td class='last'>提问数</td>
+            </tr>
+            <tr>
+               <td><a href="">{hd $userr.answer}</a></td>
+               <td><a href="">{hd $userr.cai}</a></td>
+               <td class='last'><a href="">{hd $userr.ask}</a></td>
+            </tr>
+         </table>
+      </div>
+
+   <ul>
+      <li class='myhome {hd if $smarty.get.a==null}cur{hd /if}'>
+         <a href="{hd $smarty.const.__APP__}?c=member">我的首页</a>
+      </li>
+      <li class='myask {hd if $smarty.get.a==ask}cur{hd /if}'>
+         <a href="{hd $smarty.const.__APP__}?c=member&a=ask">我的提问</a>
+      </li>
+      <li class='myanswer {hd if $smarty.get.a==answer}cur{hd /if}'>
+         <a href="{hd $smarty.const.__APP__}?c=member&a=answer">我的回答</a>
+      </li>
+      <li class='mylevel {hd if $smarty.get.a==level}cur{hd /if}'>
+         <a href="{hd $smarty.const.__APP__}?c=member&a=level">我的等级</a>
+      </li>
+      <li class='mygold {hd if $smarty.get.a==point}cur{hd /if}'>
+         <a href="{hd $smarty.const.__APP__}?c=member&a=point">我的金币</a>
+      </li>
+      <li class='myface {hd if $smarty.get.a==face}cur{hd /if}'>
+         <a href="{hd $smarty.const.__APP__}?c=member&a=face">上传头像</a>
+      </li>
+
+      <li style="background:none"></li>
+   </ul>
+</div>

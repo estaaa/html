@@ -1,0 +1,129 @@
+{hd include file='../Common/header.html'}
+<link rel="stylesheet" href="{hd $smarty.const.__PUBLIC__}/Css/question.css" />
+	<script type="text/javascript" src="{hd $smarty.const.__PUBLIC__}/Js/question.js"></script>
+	<script type="text/javascript" src="{hd $smarty.const.__PUBLIC__}/Js/anwer.js"></script>
+
+<!-- top 结束-->
+	<div id='location'>
+		<a href="{hd $smarty.const.__APP__}?c=category&cid=1}">全部分类</a>
+			{hd section loop=$morecategroy name=b}
+			&gt;&nbsp;
+				{hd if $smarty.section.b.last}
+					{hd $morecategroy[b].title}
+				{hd else}
+			<a href="{hd $smarty.const.__APP__}?c=category&cid={hd $morecategroy[b].cid}">{hd $morecategroy[b].title}</a>
+				{hd /if}
+			&nbsp;&nbsp;
+			{hd /section}
+			<!-- &gt;&nbsp;<a href="">硬件</a>&nbsp;&nbsp; -->
+	</div>
+	
+<!--------------------中部-------------------->
+	<div id='center-wrap'>
+		<div id='center'>
+			<div id='left'>
+				<div id='answer-info'>
+					<!-- 如果没有解决用wait -->
+					<div class='ans-state wait'></div>
+					<div class='answer'>
+						<p class='ans-title'>{hd $user.content}
+							<b class='point'>{hd $user.reward}</b>
+						</p>
+					</div>
+					<ul>
+						<li><a href="">{hd $user.username}</a></li>
+						<li><i class='level lv1' title='Level 1'></i></li>
+						<li>{hd $user.time|date_format:"%y-%m-%d %H:%M:%S"}</li>
+				
+					</ul>
+					{hd if $issolve.solve==0}
+					<div class='ianswer'>
+						<form action="javascript:;" method='POST'>
+							<p>我来回答</p>
+							<textarea name="content"></textarea>
+							<input type="hidden" name='asid' value='{hd $smarty.get.asid}'>
+							<input type="submit" value='提交回答' id='anw-sub'/>
+						</form>
+					</div>
+					{hd /if}
+					{hd if $okask}
+
+					<!-- 满意回答 -->
+					<div class='ans-right'>
+						<p class='title'><i></i>{满意回答}<span></span></p>
+						<p class='ans-cons'>{hd $okask.content}</p>
+						<dl>
+							<dt>
+								<a href="{hd $smarty.const.__APP__}?c=member"><img src="{hd if $okask.img==''}{hd $smarty.const.__PUBLIC__}/Images/noface.gif{hd else}{hd $okask.img}{hd /if}" width='48' height='48'/></a>
+							</dt>
+							<dd>
+								<a href="">{hd $manyi.username}</a>
+							</dd>
+							<dd><i class='level lv1'></i></dd>
+							<dd>{hd $okask.meau}%</dd>
+						</dl>
+					</div>
+					{hd /if}
+					<!-- 满意回答 -->
+				</div>
+
+				<div id='all-answer'>
+					<div class='ans-icon'></div>
+					<p class='title'>共 <strong>{hd $leng}</strong> 条回答</p>
+					<ul>
+
+						{hd foreach from=$usdata item=v}
+						<li>
+							<div class='face'>
+								<a href="">
+									<img src="{hd if $v.face==''}{hd $smarty.const.__PUBLIC__}/Images/noface.gif{hd else}{hd $v.face}{hd /if}" width='48' height='48'/>
+								</a>
+							</div>
+							<div class='cons blue'>
+								<p>{hd $v.content}<span style='color:#888;font-size:12px'>&nbsp;&nbsp;({hd $v.time|date_format:"%Y-%m-%d %H:%M:%S"})</span></p>
+							</div>
+							{hd if $issolve.solve==0}
+								{hd if $smarty.session.uid==$issolve.uid}
+								<a href="{hd $smarty.const.__APP__}?c=answer&asid={hd $smarty.get.asid}&uid={hd $smarty.session.uid}&cuid={hd $v.uid}" class='adopt-btn'>采纳</a>
+								{hd /if}
+							{hd /if}
+						</li> 
+						{hd /foreach}
+
+
+
+
+
+
+						
+					</ul>
+					<div class='page'>
+						<a href="">1</a>
+						<a href="">2</a>
+						<a href="">3</a>
+						<a href="">4</a>
+					</div>
+				</div>
+				<div id='other-ask'>
+					<p class='title'>待解决的相关问题</p>
+					<table>
+					{hd foreach from=$anddata item=v}
+						<tr>
+							<td class='t1'><a href="{hd $smarty.const.__APP__}?c=answer&asid={hd $v.asid}">{hd $v.content}</a></td>
+							<td>{hd $v.answer}&nbsp;回答</td>
+							<td>{hd $v.time|date_format:"%Y-%m-%d"}</td>
+						</tr>
+						{hd /foreach}
+					</table>
+				</div>
+			</div>
+		{hd include file='../Common/right.html'}
+			
+		</div>
+	
+
+	</div>
+	
+<!--------------------中部结束-------------------->
+
+{hd include file='../Common/footer.html'}

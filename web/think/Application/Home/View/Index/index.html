@@ -1,0 +1,263 @@
+ <include file="Public:header" />
+<script type="text/javascript" charset="utf-8">
+   
+    </script>
+   
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/index.css">
+    <script src="__PUBLIC__/Js/index.js" type="text/javascript" charset="utf-8"></script>
+        <!-- 导航区域 -->
+    <div id="nav">
+       <div class="cen">
+           <ul>
+               <li class="all"><a href="">全部商品</a></li>
+               <li class="frist"><a href="">首 页</a></li>
+               <volist name="fatherData" key="k" id="v">
+               <li><a href="{:U('Home/List/index',array('cid'=>$v['cid']))}">{$v.ctitle}</a></li>
+               </volist>
+           </ul>
+       </div>
+    </div>
+        <!-- 导航区域结束 -->
+
+
+
+
+
+
+        <!-- 轮播区域 -->
+        <div id="lunbo">
+            <!-- 首页轮播区域 -->
+            <div class="carousel">
+                <div class="left">
+
+            <!-- 分类循环 -->
+                <volist name="fatherData" key="k" id="v">
+                    <!-- 导航区域 -->
+                    <div class="nav">
+                        <s></s>
+                        <h1><a href="{:U('Home/List/index',array('cid'=>$v['cid']))}">{$v.ctitle}</a></h1>
+                        <ul>
+                            <volist name="v['son']" offset="0" length='3' id='n'>
+                                <li><a href="{:U('Home/List/index',array('cid'=>$n['cid']))}">{$n.ctitle}</a></li>
+                            </volist>
+                        </ul>
+                        <div class="list">
+                            <div class="cate">
+                                <volist name="v['son']" id='n' >
+                                   <a href="{:U('Home/List/index',array('cid'=>$n['cid']))}">{$n.ctitle}</a>
+                                </volist>
+
+                            </div>
+                            <div class="pop">
+                                <p>推荐商品</p>
+                                <volist name="v['sustain']" key="kk" id="vv">
+                                <a href="{:U('Home/Content/index',array('pro_id'=>$vv['pro_id']))}" style="font-size:12px;height:16px;line-height: 16px;overflow:hidden;width:150px;padding:0px;text-align: left;margin:10px 0;">{$vv.p_title}</a>
+                                </volist>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 导航区域结束 -->
+                </volist>
+            <!-- 循环结束 -->
+
+
+
+
+                </div>
+                <!-- 右侧区域 -->
+                <div class="right">
+                    <div class="bigimg">
+                        <volist name="bigsData" key="k" id="v" >
+                        <a href="" <if condition="$key eq 0"> style="display:block" sdd='er'</if> ><img src="__ROOT__/{$v.img}" alt="" /></a>
+                        
+                       </volist>
+                    </div>
+                    <div class="clickico">
+                        
+                         <volist name="bigsData" key="k" id="v">
+                         <span <if condition="$key eq 0"> style="background:#B6121A;" </if> ></span>
+                        </volist>
+                      
+                    </div>
+                </div>
+                <!-- 右侧区域end -->
+            </div>
+            <!-- 首页轮播区域end -->
+        </div>
+        <!-- 轮播区域end -->
+        <!-- 主大区 -->
+        <div id="main">
+            <div class="center">
+                <!-- 热卖 第一推荐区-->
+                <div id="hot">
+
+                    <!-- 左侧 -->
+                    <div class="left">
+                    <volist name="moreNum" id="v" offset="0" length='4'>
+                        <!-- 盒子 -->
+                        <div class="box">
+                            <s></s>
+                            <div class="box-border">
+                                <div class="ico">
+                                    <a href="{:U('Home/Content/index',array('pro_id'=>$v['pro_id']))}"><img src="__ROOT__/{$v.list_img}" alt="" /></a>
+                                </div>
+                                <div class="title" >
+                                    <h1><a href="{:U('Home/Content/index',array('pro_id'=>$v['pro_id']))}" style="height:26px;margin:0;">{$v.title}</a></h1>
+                                    <p style='overflow: hidden;width:240px;height:25px;'>{$v.p_title}</p>
+                                    <p class="tag">{$v.activity}</p>
+                                </div>
+                                <div class="money">
+                                    <p><span>¥{$v.p_cost}</span></p>
+                                    <a href="{:U('Home/Content/index',array('pro_id'=>$v['pro_id']))}">立即抢购</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 盒子 -->
+                       </volist>
+                    </div>
+                    <!-- 左侧结束 -->
+                    <!-- 右侧 -->
+                    <div class="right">
+                        <!-- 小轮播 -->
+                        <div class="smimg">
+                            <ul>
+                                 <volist name="modelsData" key="k" id="v">
+                                 <li>
+                                 <a href="{$v.url}">
+                                 <img src="__ROOT__/{$v.img}" alt="" />
+
+                                 </a>
+                                 </li>
+                                     
+                                 
+                                </volist>
+                                
+                                
+                            </ul>
+                            <span class="lico"></span>
+                            <span class="rico"></span>
+                        </div>
+                        <!-- 小轮播结束 -->
+                        <!-- /* 新闻区 */ -->
+                        <div class="new">
+                            <a href=""><img src="__STATIC__/Images/1111.png" alt=""></a>
+                        </div>
+                        <!-- /* 新闻区 end*/ -->
+                        <!-- 小广告图 -->
+                        <div class="adimg1"  style="display:block;">
+                            <a href=""><img src="__STATIC__/Images/hot/1.jpg" alt=""></a>
+                        </div>
+                        <!-- 小广告图 end-->
+                    </div>
+                    <!-- 右侧结束 -->
+                </div>
+                <!-- 热卖 end -->
+                <!-- 广告轮播图 -->
+                <div id="adico">
+                    <div class="right">
+                        <div class="bigimg">
+                            <volist name="smallsData"  id="v">
+                            <a href="" <if condition="$key eq 0"> style="display:block" </if> ><img src="__ROOT__/{$v.img}" alt="" /></a>
+                                                   
+                           </volist>
+                        </div>
+                        <div class="clickico">
+                            
+                            <volist name="bigsData"  id="v">
+                            <span <if condition="$key eq 0"> style="background:#B61924;opacity: 1;filter:Alpha(opacity=40);"</if> ></span>
+                            </volist>
+                        </div>
+                    </div>
+                </div>
+                <!-- 广告轮播图 end -->
+<!--*****************************************8****** 全区域循环 *********************************************************-->
+            <volist name="fatherData" key="k" id="v">
+                <!-- 手机精品区 -->
+                <div id="iphoto2" class="jsCol">
+                    <div class="title-nav">
+                        <h1>{$v.ctitle}&nbsp&nbsp&nbsp<span>华为精品{$v.ctitle}</span></h1>
+                        <div class="nav">
+                            <!-- 循环二级分类 -->
+                            <volist name="v['son']" key="cid" id="ctitle" >
+                            <a href="{:U('Home/List/index',array('cid'=>$ctitle['cid']))}">{$ctitle.ctitle}</a>
+                           
+                            <!-- <a href="" class="last">荣耀</a> -->
+                            </volist>
+                        </div>
+                    </div>
+                    <!-- 内容 --><div class="content">
+
+                    <!-- 循环产品 -->
+
+                    <!-- 盒子 1-->
+                    <volist name="v['proData']" id="pro" key='num' offset="0" length='7'>
+                    <if condition="$num eq 1" >
+                    <div class="box coBg">
+                    <s></s>
+                    <div class="box-border">
+                        <div class="ico">
+                            <a href="{:U('Home/Content/index',array('pro_id'=>$pro['pro_id']))}"><img src="__ROOT__/{$pro.list_img}" alt="" /></a>
+                        </div>
+                        <div class="title">
+                            <h1><a href="{:U('Home/Content/index',array('pro_id'=>$pro['pro_id']))}" style="width:200px;overflow:hidden;height:26px;">{$pro.p_title}</a></h1>
+                            <p>精湛工艺 卓越设计</p>
+                            <p class="tag">{$pro.activity}</p>
+                        </div>
+                        <div class="money">
+                            <p><span>¥{$pro.p_cost}</span></p>
+                            <a href="{:U('Home/Content/index',array('pro_id'=>$pro['pro_id']))}">立即抢购</a>
+                        </div>
+                    </div>
+                    </div> 
+                    <!-- 盒子1end -->
+                    <else/>
+                    <div class="box1 coBg"><!-- 盒子 2-->
+                    <s></s>
+                    <div class="box-border">
+                        <div class="ico">
+                            <a href="{:U('Home/Content/index',array('pro_id'=>$pro['pro_id']))}"><img src="__ROOT__/{$pro.list_img}" alt="" /></a>
+                        </div>
+                        <div class="title">
+                            <h1><a href="{:U('Home/Content/index',array('pro_id'=>$pro['pro_id']))}"> <span>{$pro.activity}</span></a></h1>
+                        </div>
+                        <div class="money">
+                            <span>¥{$pro.p_cost}</span>
+                        </div>
+                    </div>
+                    </div>
+                    </if>
+                    </volist>
+                    <!-- 循环产品结束 -->
+                    <!-- 盒子2end -->
+                    
+                </div>
+                <!-- 内容结束 -->
+                </div>
+            </volist>
+<!--*****************************************8****** 全区域循环 end*********************************************************-->
+          
+    <!-- 内容结束 -->
+</div>
+<!-- 必备配件end -->
+<!-- 底部广告图片 -->
+<div id="lastimg">
+    <a href=""><img src="__STATIC__/Images/hot/4.jpg" alt="" /></a>
+</div>
+<!-- 底部广告end -->
+<!-- 关注区域 -->
+<div id="attention">
+    <div class="qq">
+        <a href=""><img src="__STATIC__/Images/2.png" alt="" /></a>
+        <a href=""><img src="__STATIC__/Images/3.png" alt="" /></a>
+        <a href=""><img src="__STATIC__/Images/4.png" alt="" /></a>
+        <a href=""><img src="__STATIC__/Images/5.png" alt="" /></a>
+    </div>
+</div>
+<!-- 关注区域end -->
+</div>
+</div>
+<!-- 主大区结束 -->
+<include file="Public:flooter" />
+
+</body>
+</html>

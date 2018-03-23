@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<hdjs/>
+
+<title></title>
+<link rel="stylesheet" href="__TEMPLATE__/css/page.css" />
+<link rel="stylesheet" href="__TEMPLATE__/css/style.css" />
+<include file="__TEMPLATE__/header" />
+	<!-- 主体区域 -->
+	<div id="page_main">
+		<include file="__TEMPLATE__/right" />
+		<!-- 左侧 -->
+		<div class="left">
+			<h1><a href="{|U:'Index/List/index',array('cid'=>$c48cms['pid'])}">{$c48cms.title}</a></h1>
+			<!-- 文章信息 -->
+			<div class="article_info_box">
+				<p class="article_info">
+					<span class="padding_right">{$c48cms.sendtime|date:'m-d H:m:s',@@}</span>
+					分类：<a href="" class="padding_right">{$c48cms.ctitle}</a>
+					<a href="" class="padding_right comment">{$c48cms.total}条评论</a>
+					<span id="click">{$c48cms.click}</span>次浏览
+				</p>
+			</div>
+			<!-- 文章信息结束 -->
+
+			<!-- 文章内容区域 -->
+			<div class="article_content">
+				{$c48cms.content}
+			</div>
+			<!-- 文章内容区域结束 -->
+
+			<p class="position">当前位置：<a href="{|U:'Index/List/index',array('cid'=>$c48cms['pid'])}">{$c48cms.ctitle}</a> » <a href="">{$c48cms.title}</a></p>
+			<p class="tags">
+				继续浏览有关
+				<!-- //标签 -->
+				<foreach from="$tag" key="$k" value="$v">
+					
+					<a href="{|U:'Index/List/index',array('tid'=>$v['tid'])}">{$v.tagname}</a>
+				</foreach>
+				
+				的文章</p>
+			<!-- 相关文章 -->
+			<ul id="msg_list" class="msg_list">
+				<p id="loading">
+					<img src="__TEMPLATE__/images/loading.gif" style='width:50px;height:50px;'>
+				</p>
+				<div>
+					评论：
+					<ul class="comment-ul">
+						
+					</ul>
+				</div>
+			</ul>
+			<div id="comment-form-box">
+				<form id="commentForm" action="{|U:'comData'}" method="post">	
+					<textarea id="comment_content" name="comcon"></textarea>
+					<input class='submit' type="submit" value="发表评论">
+					<input type="hidden" name="article_aid" value="{$c48cms.article_aid}">
+					<input type="hidden" name="pid" value="{$c48cms.pid}">
+				</form>
+			</div>	
+	<!-- 主体区域结束 -->
+		<include file="__TEMPLATE__/flooter" />
+	
+</body>
+</html>

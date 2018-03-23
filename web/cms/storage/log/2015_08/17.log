@@ -1,0 +1,4 @@
+[ 2015-08-17T14:12:22+08:00 ]EXCEPTION: SELECT  *  FROM article a INNER JOIN collect c ON a.aid = c.aid WHERE user_uid=0 ;BindParams:array (
+)23000;1052;Column 'user_uid' in where clause is ambiguous
+[ 2015-08-17T14:12:23+08:00 ]EXCEPTION: SELECT  *  FROM article a INNER JOIN collect c ON a.aid = c.aid WHERE user_uid=0 ;BindParams:array (
+)23000;1052;Column 'user_uid' in where clause is ambiguous

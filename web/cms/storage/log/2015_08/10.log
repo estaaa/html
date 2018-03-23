@@ -1,0 +1,2 @@
+[ 2015-08-10T18:04:31+08:00 ]NOTICE: Undefined index: username/www/kuaixue/app/Api/Controller/LoginController.php (10).
+[ 2015-08-10T18:04:31+08:00 ]NOTICE: Cannot modify header information - headers already sent by (output started at /www/kuaixue/Hdphp/Error/View/notice.php:2)/www/kuaixue/Hdphp/View/View.php (281).

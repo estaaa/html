@@ -1,0 +1,243 @@
+<include file="Public:header" />
+
+<script src="__PUBLIC__/Js/index.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/user.css">
+<script src="__PUBLIC__/Js/js.js" type="text/javascript" charset="utf-8"></script>
+       <script language="javascript" src="__PUBLIC__/Js/address.js"></script>
+<script language="javascript">
+var s=["s1","s2","s3"];
+var opt0 = ["请选择省","请选择市","请选择县（区）"];
+function setup(){
+ for(i=0;i<s.length-1;i++)
+  document.getElementById(s[i]).onclick=new Function("change("+(i+1)+")");
+ change(0);
+}
+window.onload=function(){
+setup()  
+ 
+};
+$(function(){
+
+  $('form').submit(function(){
+            $('input[type=submit]').val("添加新地址");
+            var shop_city = $('#s1').val() + '省,' + $('#s2').val() + '市,' + $('#s3').val();
+            var fromdata = $(this).serialize()+'&shop_city='+shop_city;
+            var _this = $(this);
+            $.ajax({
+                url:'addressd',
+                type:'post',
+                data:fromdata,
+                dataType: 'json',
+                success:function(phpData){
+                    if(phpData==1){alert('收货人不能为空');return;}
+                    if(phpData==2){alert('收货地址不能为空');return;}
+                    if(phpData==3){alert('收货详细地址不能为空不能为空');return;}
+                    if(phpData==4){alert('手机号码不能为空');return;}
+                    var str='';
+                    $.each(phpData,function(x,y){
+                          str+='<div class="in-nav both">';
+                          str+='<a href="javascript:;" style="width:140px;">'+y.add_people+'</a>';
+                          str+='<a href="javascript:;" style="width:250px;">'+y.address+'</a>';
+                          str+='<a href="javascript:;" style="width:150px;">'+y.postcode+'</a>';
+                          str+='<a href="javascript:;" style="width:170px;">'+y.add_iphoto+'</a>';
+                          str+='<a href="javascript:;" class="edit" addid="'+y.add_id+'" style="width:70px;">编辑</a>';
+                          str+='<a href="javascript:;" addid="'+y.add_id+'" style="width:70px;" class="del">删除</a>';
+                          str+='</div>';
+
+                       
+                    })
+                   $('.add').html(str);
+                    
+                }
+            })
+// 清空默认值
+            $("input[type=reset]").trigger("click");
+            $('p.area textarea').html('');
+            $('#s1 option').removeAttr('selected');
+            $('#s2 option').html('请选择');
+            $('#s3 option').html('请选择');
+
+        })
+
+
+
+ // 修改
+$('.edit').live('click',function(){
+     var addid = $(this).attr('addid');
+     $('input[type=submit]').val("确认修改");
+     // 改变提交路径
+     // $('.form').attr("method","edit");
+     $.ajax({
+         url:'edit',
+         type:'post',
+         data:{addid:addid},
+         dataType:'json',
+         success:function(phpData){
+             // 设置表单内容
+             $('input[name=add_people]').val(phpData.add_people);
+             // 获得联动城市
+             var s= phpData.shop_city[0].replace('省','');
+             var x = phpData.shop_city[1].replace('市','');
+             var q = phpData.shop_city[2];
+             $.each($('#s1 option'),function(x,y){
+                 var a =$('#s1 option').eq(x).val();
+                 if(a==s){
+                     $('#s1 option').eq(x).attr('selected','selected')
+                 }
+
+             })
+            $('#s2').html('<option selected>'+x+'</option>');
+            $('#s3').html('<option selected>'+q+'</option>');
+            $('textarea').html(phpData.address);
+            $('input[name=postcode]').val(phpData.postcode);
+            $('input[name=add_iphoto]').val(phpData.add_iphoto);
+            $('input[name=pic_all]').val(phpData.pic_all);
+            // 添加一个隐藏表单用来判断是修改还是添加
+            var inputHtml = '<input type="hidden" name="addid" value="'+phpData.add_id+'">';
+            $('input[name=addid]').remove();
+            $('input[name=add_iphoto]').after(inputHtml);
+            
+         }
+     })
+    
+     
+})
+  // 删除收货地址
+  $('.del').live('click',function(){
+      var addid = $(this).attr('addid');
+      $.ajax({
+          type:'post',
+          url:'delAdd',
+          data:{addid:addid},
+
+      })
+      $(this).parents('.both').hide();
+  })
+})
+</script>
+<include file="Public:left" />
+<div id="user-right">
+              
+      <!-- 我的收货地址 -->
+                   <div id="user-refund">
+                       <div class="header">
+                           <span>收货地址</span>
+                       </div>
+                       <div id="Profile">
+                       <form action="javascript:;" method="post" accept-charset="utf-8">
+                         
+                           <div class="pt">
+                               <p><span style="width:120px;"><i>* &nbsp</i>收货人：</span><input type="text" name="add_people" value=""></p>
+                               <p style="height:170px;"><span style="width:120px;"><i>* &nbsp</i>收货地址：</span> 
+                               <select id="s1" name="" style="height:30px;">
+                                           <option>省份</option>
+                                       </select>
+                                       <select id="s2" name="city" style="height:30px;">
+                                           <option>地级市</option>
+                                       </select>
+                                       <select id="s3" name="county" style="height:30px;">
+                                           <option>市、县级市、县</option>
+                                       </select></span><br />
+                               <textarea name="address"></textarea><br />
+                               </p>
+                               <p><span style="width:120px;">邮编：</span><input type="text" name="postcode" value=""></p>
+                               <p style="width:300px;"><span style="width:120px;"><i>* &nbsp</i>手机号码：</span><input type="text" name="add_iphoto" value=""></p>
+                               <p style="width:300px;"><span>或者固定电话：</span><input type="text" name="" value=""></p>
+                              
+                               <p class="last" style="padding-left: 30px;">
+                               <input type="submit" class="lf" style="width:120px;background:none;border:none;font-size:14px;border:1px solid #EEEEEE;" value="添加新地址" />
+                               <input type="reset" style="width:120px;background:none;border:1px solid #EEEEEE;font-size:14px;margin-left: 20px;" value="清空"/></p>
+                           </div>
+
+                       </form>
+                       </div>
+                      <div class="in-nav">
+                           <a href="javascript:;" style="color:#f63;">收货人</a>
+                          <a href="javascript:;">收货地址</a>
+                          <a href="javascript:;">邮编</a>
+                          <a href="javascript:;">手机/电话</a>
+                          <!-- <a href="javascript:;">已完成</a> -->
+                          <a href="javascript:;">操作</a>
+                      </div>
+                      <div class="add">
+                      <volist name="addData" key="k" id="v">
+                      
+                        <div class="in-nav both">
+                             <a href="javascript:;" style="width:140px;">{$v.add_people}</a>
+                            <a href="javascript:;" style="width:250px;">{$v.address}</a>
+                            <a href="javascript:;" style="width:150px;">{$v.postcode}</a>
+                            <a href="javascript:;" style="width:170px;">{$v.add_iphoto}</a>
+                            <!-- <a href="javascript:;">已完成</a> -->
+                            <a href="javascript:;" style="width:70px;" class="edit" addid="{$v.add_id}">编辑</a>
+                            <a href="javascript:;" style="width:70px;" class="del" addid="{$v.add_id}">删除</a>
+                        </div>
+                      </volist>
+                      </div>
+                   </div>
+
+                 <!-- 我的收货地址end -->
+        
+
+
+
+
+            </div>
+        </div>
+      </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 底部区域 -->
+<include file="Public:flooter" />
+   
+        <!-- 底部区域结束 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 底部区域 -->
+
+    
+        <!-- 底部区域结束 -->
+        </body>
+        </html>

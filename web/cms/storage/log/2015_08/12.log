@@ -1,0 +1,70 @@
+[ 2015-08-12T20:17:20+08:00 ]NOTICE: Undefined index: usernameD:\wamp\www\cms\app\Api\Controller\LoginController.php (9).
+[ 2015-08-12T20:17:21+08:00 ]NOTICE: Undefined index: usernameD:\wamp\www\cms\app\Api\Controller\LoginController.php (9).
+[ 2015-08-12T20:17:23+08:00 ]NOTICE: Undefined index: usernameD:\wamp\www\cms\app\Api\Controller\LoginController.php (9).
+[ 2015-08-12T20:18:19+08:00 ]EXCEPTION: Api\Controller\ListController 不存在
+[ 2015-08-12T20:18:20+08:00 ]EXCEPTION: Api\Controller\ListController 不存在
+[ 2015-08-12T20:18:35+08:00 ]EXCEPTION: Api\Controller\ArticleController 不存在
+[ 2015-08-12T20:18:36+08:00 ]EXCEPTION: Api\Controller\ArticleController 不存在
+[ 2015-08-12T20:18:39+08:00 ]EXCEPTION: Api\Controller\ArticleController 不存在
+[ 2015-08-12T20:26:36+08:00 ]NOTICE: Undefined variable: typeD:\wamp\www\cms\app\Api\Controller\ArticleController.php (20).
+[ 2015-08-12T20:26:36+08:00 ]EXCEPTION: SELECT  *  FROM article WHERE  flag=?  LIMIT 0,10 ;BindParams:array (
+  0 => NULL,
+)42S22;1054;Unknown column 'flag' in 'where clause'
+[ 2015-08-12T20:26:37+08:00 ]NOTICE: Undefined variable: typeD:\wamp\www\cms\app\Api\Controller\ArticleController.php (20).
+[ 2015-08-12T20:26:37+08:00 ]EXCEPTION: SELECT  *  FROM article WHERE  flag=?  LIMIT 0,10 ;BindParams:array (
+  0 => NULL,
+)42S22;1054;Unknown column 'flag' in 'where clause'
+[ 2015-08-12T20:39:42+08:00 ]EXCEPTION: Method Api\Controller\ArticleController::() does not exist
+[ 2015-08-12T20:39:42+08:00 ]EXCEPTION: Method Api\Controller\ArticleController::() does not exist
+[ 2015-08-12T20:59:44+08:00 ]NOTICE: Undefined index: usernameD:\wamp\www\cms\app\Api\Controller\LoginController.php (9).
+[ 2015-08-12T23:15:46+08:00 ]EXCEPTION: Method Api\Controller\ContentController::index() does not exist
+[ 2015-08-12T23:16:03+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (6).
+[ 2015-08-12T23:16:03+08:00 ]EXCEPTION: SELECT  *  FROM article WHERE  id=?  LIMIT 1 ;BindParams:array (
+  0 => NULL,
+)42S22;1054;Unknown column 'id' in 'where clause'
+[ 2015-08-12T23:16:04+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (6).
+[ 2015-08-12T23:16:04+08:00 ]EXCEPTION: SELECT  *  FROM article WHERE  id=?  LIMIT 1 ;BindParams:array (
+  0 => NULL,
+)42S22;1054;Unknown column 'id' in 'where clause'
+[ 2015-08-12T23:16:33+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (6).
+[ 2015-08-12T23:16:33+08:00 ]EXCEPTION: SELECT  *  FROM article WHERE  id=?  LIMIT 1 ;BindParams:array (
+  0 => NULL,
+)42S22;1054;Unknown column 'id' in 'where clause'
+[ 2015-08-12T23:16:34+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (6).
+[ 2015-08-12T23:16:34+08:00 ]EXCEPTION: SELECT  *  FROM article WHERE  id=?  LIMIT 1 ;BindParams:array (
+  0 => NULL,
+)42S22;1054;Unknown column 'id' in 'where clause'
+[ 2015-08-12T23:16:42+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (5).
+[ 2015-08-12T23:16:43+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (6).
+[ 2015-08-12T23:16:43+08:00 ]EXCEPTION: SELECT  *  FROM article WHERE  id=?  LIMIT 1 ;BindParams:array (
+  0 => NULL,
+)42S22;1054;Unknown column 'id' in 'where clause'
+[ 2015-08-12T23:17:05+08:00 ]EXCEPTION: SELECT  *  FROM article WHERE  id=?  LIMIT 1 ;BindParams:array (
+  0 => '1',
+)42S22;1054;Unknown column 'id' in 'where clause'
+[ 2015-08-12T23:17:08+08:00 ]EXCEPTION: SELECT  *  FROM article WHERE  id=?  LIMIT 1 ;BindParams:array (
+  0 => '2',
+)42S22;1054;Unknown column 'id' in 'where clause'
+[ 2015-08-12T23:17:38+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (5).
+[ 2015-08-12T23:17:38+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (6).
+[ 2015-08-12T23:17:38+08:00 ]EXCEPTION: SELECT  *  FROM article WHERE  id=?  LIMIT 1 ;BindParams:array (
+  0 => NULL,
+)42S22;1054;Unknown column 'id' in 'where clause'
+[ 2015-08-12T23:17:59+08:00 ]EXCEPTION: Method Api\Controller\ContentController::show() does not exist
+[ 2015-08-12T23:18:01+08:00 ]EXCEPTION: Method Api\Controller\ContentController::show() does not exist
+[ 2015-08-12T23:18:03+08:00 ]EXCEPTION: Method Api\Controller\ContentController::show() does not exist
+[ 2015-08-12T23:19:10+08:00 ]EXCEPTION: SELECT  *  FROM article WHERE  id=?  LIMIT 1 ;BindParams:array (
+  0 => '1',
+)42S22;1054;Unknown column 'id' in 'where clause'
+[ 2015-08-12T23:51:12+08:00 ]EXCEPTION: SELECT  *  FROM article_data WHERE  aid=?  LIMIT 1 ;BindParams:array (
+  0 => '3',
+)42S22;1054;Unknown column 'aid' in 'where clause'
+[ 2015-08-12T23:51:14+08:00 ]EXCEPTION: SELECT  *  FROM article_data WHERE  aid=?  LIMIT 1 ;BindParams:array (
+  0 => '2',
+)42S22;1054;Unknown column 'aid' in 'where clause'
+[ 2015-08-12T23:51:37+08:00 ]EXCEPTION: SELECT  *  FROM article_data WHERE  aid=?  LIMIT 1 ;BindParams:array (
+  0 => '1',
+)42S22;1054;Unknown column 'aid' in 'where clause'
+[ 2015-08-12T23:51:38+08:00 ]EXCEPTION: SELECT  *  FROM article_data WHERE  aid=?  LIMIT 1 ;BindParams:array (
+  0 => '1',
+)42S22;1054;Unknown column 'aid' in 'where clause'

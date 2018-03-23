@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="__PUBLIC__/Admin/css/bank.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__STATIC__/Js/jquery-1.7.2.min.js"></script>
+<link href="__PUBLIC__/Admin/css/select.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+    KE.show({
+        id : 'content7',
+        cssPath : './index.css'
+    });
+  </script>
+  
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $(".select1").uedSelect({
+		width : 220			  
+	});
+	$(".select2").uedSelect({
+		width : 167  
+	});
+	$(".select3").uedSelect({
+		width : 100
+	});
+});
+</script>
+<style type="text/css" media="screen">
+    .tabson{
+        width:900px;
+    }
+    #tab1 ul.forminfo li{
+        width:400px;float:left;
+        clear: none;
+
+    }
+</style>
+</head>
+
+<body>
+
+
+    
+    <div class="formbody">
+    
+    
+    <div id="usual1" class="usual"> 
+    
+    <div class="itab">
+  	<ul> 
+    <li><a href="#tab1" class="selected">用户资料修改</a></li>
+  	</ul>
+    </div> 
+    
+  	<div id="tab1" class="tabson">
+    
+    <div class="formtext">Hi，<b>{$hd.session.adminname}</b>，欢迎您修改分类！</div>
+    <form action="" method="post" enctype='multipart/form-data'>
+    
+    
+    <ul class="forminfo">
+    <li id="img_box">
+        <label>用户头像</label>
+        <img id="img"  <present name="allUser['thumb']">src="__ROOT__/{$allUser.thumb}" <else/> src="__STATIC__/images/headPic.jpg.png" </present> >
+        <span id="file">上传头像</span>
+        <input type="file" id="thumb" name="thumb" <present name="allUser['thumb']">value="{$allUser.thumb}"</present>></li>
+
+    <li><label>用户名字</label><input name="username" type="text" class="dfinput" value="{$allUser.username}"  style="width:218px;"/></li>
+
+
+    <li><label>用户密码</label><input name="passwd" type="password" class="dfinput" value="{$allUser.password}"  style="width:218px;"/></li>
+
+    <li><label>确认密码</label><input name="password" type="password" class="dfinput" value="{$allUser.password}"  style="width:218px;"/></li>
+
+    <li><label>用户昵称</label><input name="nickname" type="text" class="dfinput" value="{$allUser.nickname}"  style="width:218px;"/></li>
+    
+    <li><label>用户金钱</label><input name="money" type="text" class="dfinput" value="{$allUser.money}"  style="width:218px;"/></li>
+
+    <li><label>用户邮箱</label><input name="emli" type="email" class="dfinput" value="{$allUser.emli}"  style="width:218px;"/></li>
+
+
+    <li><label>用户电话</label><input name="iphoto" type="text" class="dfinput" value="{$allUser.iphoto}"  style="width:218px;"/></li>
+
+    <li><label>用户生日</label><input name="birthday" type="text" class="dfinput" value="{$allUser.birthday}"  style="width:218px;"/></li>
+
+    <li><label>用户所在地</label><input name="city" type="text" class="dfinput" value="{$allUser.city}"  style="width:218px;"/></li>
+
+    <li><label>用户性别</label>
+        <div class="box" style="height:24px;padding-top: 10px;">
+            保密:<input name="max" type="radio" value="保密" <if condition="$allUser['max'] eq '保密'">checked="checked" </if> > 
+            男:<input name="max" type="radio" value="男" <if condition="$allUser['max'] eq '男'"> checked="checked" </if> />
+            女:<input name="max" type="radio" value="女" <if condition="$allUser['max'] eq '女'"> checked="checked" </if>/>
+        </div>
+    </li>
+
+
+    <li><label>是否被锁定</label>
+        <div class="box" style="height:24px;padding-top: 10px;">
+            是:<input name="is_lock" type="radio" value="1" <if condition="$allUser['is_lock'] eq 1"> checked="checked" </if> />
+            否:<input name="is_lock" type="radio" value="0" <if condition="$allUser['is_lock'] eq 0"> checked="checked" </if>/>
+        </div>
+    </li>
+
+
+
+    <li><label>管理员</label>
+        <div class="box" style="height:24px;padding-top: 10px;">
+            前台用户:<input name="is_admin" type="radio" value="0" <if condition="$allUser['is_admin'] eq 0"> checked="checked" </if> />
+            vip用户:<input name="is_admin" type="radio" value="3" <if condition="$allUser['is_admin'] eq 3"> checked="checked" </if>/>
+         
+        </div>
+    </li>
+    
+    
+
+    
+    
+
+
+   
+    <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认修改"/></li>
+    </ul>
+    </form>
+    </div> 
+    
+    
+  	<div id="tab2" class="tabson">
+    
+    
+
+    
+ 
+    
+   
+  
+    
+    </div>  
+       
+	</div> 
+ 
+	<script type="text/javascript"> 
+      $("#usual1 ul").idTabs(); 
+    </script>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	</script>
+    
+    
+    
+    
+    
+    </div>
+
+
+</body>
+
+</html>

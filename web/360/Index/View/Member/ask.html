@@ -1,0 +1,90 @@
+{hd include file='../Common/header.html'}
+<link rel="stylesheet" href="{hd $smarty.const.__PUBLIC__}/Css/member.css" />
+<!-- top结束 -->
+<!--------------------中部-------------------->
+	<div id='center'>
+<!-- 左侧 -->
+{hd include file='../Common/ask.html'}
+<!-- 左侧结束 -->
+		<div id='right'>
+			<p class='title'>我的提问</p>
+			<ul class='ask-filter'>
+				<li class='{hd if $smarty.get.v==NULL}cur{hd /if}'><a href="{hd $smarty.const.__APP__}?c=member&a=ask">待解决问题</a></li>
+				<li class='{hd if $smarty.get.v==1}cur{hd /if}'><a href="{hd $smarty.const.__APP__}?c=member&a=ask&v=1">已解决问题</a></li>
+			</ul>
+			{hd if $smarty.get.v==NULL}
+			<div class='list list-filter'>
+				<table>
+					
+					
+					{hd if $ask}
+					<tr>
+						<th class='t1'>标题</th>
+						<th>回答数</th>
+						<th class='t3'>更新时间</th>
+					</tr>
+					<tr>
+					{hd section loop=$ask name=x max=8}
+						<td class='t1'>
+							<a href="{hd $smarty.const.__APP__}?c=answer&asid={hd $ask[x].asid}">{hd $ask[x].content}</a> <span> [{hd $ask[x].title}]</span>
+						</td>
+						<td>{hd $ask[x].answer}</td>
+						<td class='t3'>{hd $ask[x].time|date_format:"%Y-%m-%d"}</td>
+					</tr>
+					{hd /section}
+					{hd else}
+					<tr height='140'>
+						<td>你还没有待解决的提问</td>
+					</tr>
+					{hd /if}
+					
+				</table>
+			</div>
+			{hd else}
+			<div class='list list-filter'>
+				<table>
+					
+					{hd if $notask}
+
+					<tr>
+						<th class='t1'>标题</th>
+						<th>回答</th>
+						<th class='t3'>更新时间</th>
+					</tr>
+					{hd section loop=$notask name=x max=8}
+					<tr>
+						<td class='t1'>
+							<a href="{hd $smarty.const.__APP__}?c=answer&asid={hd $notask[x].asid}">{hd $notask[x].content}</a><span>[{hd $notask[x].title}]</span>
+						</td>
+						<td>{hd $notask[x].answer}</td>
+						<td class='t3'>{hd $notask[x].time|date_format:"%Y-%m-%d"}</td>
+					</tr>
+					{hd /section}
+					{hd else}
+					<tr height='140'>
+						<td>你还没有已解决的提问</td>
+					</tr>
+					{hd /if}
+					
+				</table>
+			</div>
+			{hd /if}
+		</div>
+	</div>
+<!--------------------中部结束-------------------->
+<!-- 底部 -->
+	<div id='bottom'>
+		<p>Copyright © 2013 Qihoo.Com All Rights Reserved 后盾网</p>
+		<p>京公安网备xxxxxxxxxxxx</p>
+	</div>
+<!--[if IE 6]>
+    <script type="text/javascript" src="{hd $smarty.const.__PUBLIC__}/Js/iepng.js"></script>
+    <script type="text/javascript">
+    	DD_belatedPNG.fix('.logo','background');
+        DD_belatedPNG.fix('.nav-sel a','background');
+        DD_belatedPNG.fix('.ask-cate i','background');
+    </script>
+<![endif]-->
+</body>
+</html>
+<!-- 底部结束 -->

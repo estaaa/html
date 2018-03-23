@@ -1,0 +1,12 @@
+
+@media only screen and (max-width:1000px){
+	#content .con-cen .right{
+		width: 25% !important;
+	}
+	#content .con-cen .left{
+		width: 70% !important;
+	}
+	#content .con-cen .right{
+		min-width: 30% !important;
+	}
+}

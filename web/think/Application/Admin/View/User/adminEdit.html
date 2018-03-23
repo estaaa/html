@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="__PUBLIC__/Admin/css/bank.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__STATIC__/Js/jquery-1.7.2.min.js"></script>
+<link href="__PUBLIC__/Admin/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    KE.show({
+        id : 'content7',
+        cssPath : './index.css'
+    });
+  </script>
+  
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $(".select1").uedSelect({
+		width : 345			  
+	});
+	$(".select2").uedSelect({
+		width : 167  
+	});
+	$(".select3").uedSelect({
+		width : 100
+	});
+});
+</script>
+</head>
+
+<body>
+
+
+    
+    <div class="formbody">
+    
+    
+    <div id="usual1" class="usual"> 
+    
+    <div class="itab">
+  	<ul> 
+    <li><a href="#tab1" class="selected">编辑</a></li>
+  	</ul>
+    </div> 
+    
+  	<div id="tab1" class="tabson">
+    
+    <div class="formtext">Hi，<b>{$Think.session.adminname}</b>，欢迎您使用编辑功能！</div>
+    <form action="" method="post" >
+    
+    
+    <ul class="forminfo">
+    <li><label>管理员名字<b>*</b></label><input name="username" type="text" class="dfinput" value="{$allUser.username}"  style="width:218px;"/></li>
+    <li><label>管理员密码<b>*</b></label><input name="oldpass" type="password" class="dfinput" value="{$allUser.password}"  style="width:218px;"/></li>
+    <li><label>新密码<b>*</b></label><input name="password" type="password" class="dfinput" value="{$allUser.password}"  style="width:218px;"/></li>
+    <li><label>确认密码<b>*</b></label><input name="newpass" type="password" class="dfinput" value="{$allUser.password}"  style="width:218px;"/></li>
+    <li><label>是否锁定</label>
+    <div class="box" style="height:24px;padding-top: 10px;">
+        是:<input name="is_lock" type="radio" value="1"  <if condition="$allUser['is_lock']==1">checked="checked"</if>/>
+        否:<input name="is_lock" type="radio" value="0"   <if condition="$allUser['is_lock']==0">checked="checked"</if>/>
+    </div>
+      
+    </li>
+  
+    <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="马上发布"/></li>
+    </ul>
+    </form>
+    </div> 
+    
+    
+  	<div id="tab2" class="tabson">
+    
+    
+
+    
+ 
+    
+   
+  
+    
+    </div>  
+       
+	</div> 
+ 
+	<script type="text/javascript"> 
+      $("#usual1 ul").idTabs(); 
+    </script>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	</script>
+    
+    
+    
+    
+    
+    </div>
+
+
+</body>
+
+</html>

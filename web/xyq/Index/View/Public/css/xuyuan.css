@@ -1,0 +1,299 @@
+/* 
+* @Author: anchen
+* @Date:   2015-05-18 19:00:01
+* @Last Modified by:   anchen
+* @Last Modified time: 2015-07-26 15:27:50
+*/
+*{
+    padding:0px;
+    margin:0px;
+
+}
+#header .center .bg img{
+        display:inline-block;
+        position:absolute;
+        right:-300px;
+        top: 86px;
+        z-index: 1;
+}
+#box{
+   
+    width: 100%;
+    height:600px;
+    position: relative;
+    margin:0 auto;
+    overflow: hidden;
+    background:url(../images/bg_main.jpg);
+
+}
+.form{
+    width:260px;
+    height:150px;
+    position:fixed;
+    left:-260px;
+    top:-150px;
+    display:none;
+    z-index: 100;
+    padding-top:20px;
+    background:#FFEEF4;
+
+    box-shadow: 0 0 5px #fff;
+}
+.form span,.form input,.form textarea{
+    float:left;
+    display:inline-block;
+}
+.form span{
+    width:30px;
+    padding:0 10px;
+    height:30px;
+    line-height:50px ;
+}
+.form input{
+    width:150px;
+    padding:0 10px;
+    height:30px;
+    line-height:30px ;
+    margin-top:10px;
+}
+.form input.sub_inp{
+    margin-left:50px;
+    width:170px;
+    background:#ADE136;
+    border:none;
+    font-family: '微软雅黑';
+}
+.form textarea{
+    margin-top:10px;
+    width:150px;
+    padding:0 10px;
+    height:30px;
+    line-height:30px ;
+}
+.form i img{
+    display:inline-block;
+    position:absolute;
+    right:0px;
+    height:20px;
+    width:20px;
+    top:0px;
+
+}
+/*注册页面和登陆页面*/
+#header{
+    width:100%;
+    height:82px;
+    background:url(../images/bg_top.jpg) repeat-x;
+    margin-bottom: 20px;
+}
+.opc{
+    background:#000;
+    width:100%;
+    position:fixed;
+    top:0px;
+    left:0;
+    display:none;
+    height:800px;
+    z-index: 50;
+    opacity: 0.5;
+}
+#header .center{
+    width:950px;
+    height:50px;
+    margin:0 auto;
+    position:relative;
+    background:url(../images/btn_diy1.gif) no-repeat;
+    top:15px;
+    left:0;
+}
+#header .center .img{
+    width:142px;
+    height:48px;
+    position:absolute;
+}
+#header .center .list{
+    width:120px;
+    height:50px;
+    float: right;
+}
+#header .center .list a{
+    font-size: 20px;
+    height:50px;
+    display:inline-block;
+    text-decoration: none;
+    color:#16658F;
+    line-height: 50px;
+    margin-left: 20px;
+    font-family: '微软雅黑';
+}
+#header .center .list div{
+     width:400px;
+    height:50px;
+    display:none;
+
+}
+#header .center .list .login_list,#header .center .list .enroll_list{
+    width:310px;
+    padding:30px 20px;
+    height:300px;
+    right:-370px;
+    z-index: 60;
+    top:120px;
+    background:#fff;
+    position:fixed;
+    z-index: 60;
+    box-shadow: 0 0 5px #fff;
+}
+#header .center .list .login_list span,#header .center .list .login_list input,#header .center .list .enroll_list span,#header .center .list .enroll_list input{
+    float:left;
+    display:inline-block;
+}
+#header .center .list .login_list span,#header .center .list .enroll_list span{
+    height:60px;
+    width:80px;
+    line-height: 60px;
+    font-size: 16px;
+    font-family: '微软雅黑';
+}
+#header .center .list .login_list input,#header .center .list .enroll_list input{
+   height:50px;
+   margin-top: 10px;
+   width:210px;
+   /*border:1px solid #0000FF;*/
+   box-shadow: 0 0 1px #367FAE;
+}
+#header .center .list .login_list .zhuce,#header .center .list .enroll_list .zhuce{
+    width:210px;
+    text-align: center;
+    font-size: 20px;
+    margin-left:80px;
+    color:#fff;
+    cursor:pointer;
+    margin-top: 20px;
+
+    background:blue;
+}
+#header .center .list .login_list img,#header .center .list .enroll_list img{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height:20px;
+    width:20px;
+    /*z-index: 20;*/
+}
+#header .center .list .login_list input.day{
+    height:20px;
+    width:20px;
+    margin-top: 20px;
+    margin-right:10px;
+}
+#header .center .list .enroll_list h2{
+    color:red;
+    height:20px;
+    font-weight: 400;
+    font-size: 14px;
+    display:none;
+    float:left;
+    margin-top:15px;
+}
+/* form表单************************************* */
+
+/*<!-- 第一块 -->*/
+#box .box-1{
+     width: 240px;
+    height: 210px;
+    position: absolute;
+    left: 20px;
+    top: 40px;
+    z-index: 0;
+    background: url(../images/1.gif);
+}
+
+/*#box .box-1:hover{
+    z-index: 5;
+}*/
+p,span,h3,h4,h5,a{
+    font-size: 12px;
+    display:inline-block;
+    color: #333;
+    font-family: Georgia,Verdana,"sans-serif","宋体";
+    line-height: 14px;
+}
+#box .box-1 p{
+    position: absolute;
+    top: 5px;
+    left: 30px;
+}
+#box .box-1 img{
+    position: absolute;
+    top: 35px;
+    left: 18px;
+    z-index: 20;
+}
+#box .box-1 h3{
+    position: absolute;
+    top: 35px;
+    left: 105px;
+    color: #FF7592;
+    font-weight: 400;
+}
+#box .box-1 h4{
+    position: absolute;
+    top: 54px;
+    left: 100px;
+    padding:0 12px;
+    font-weight: 400;
+    line-height: 20px;
+}
+#box .box-1 h5{
+    position: absolute;
+    top: 155px;
+    right: 20px;
+    color: #FF7592;
+    font-weight: 400;
+}
+#box .box-1 .box-buttom{
+    position: absolute;
+    height: 30px;
+    top: 177px;
+    left: 15px;
+    width: 240px;
+}
+#box .box-1 .box-buttom span{
+   text-align: left;
+   width: 90px;
+   height: 30px;
+}
+#box .box-1 .box-buttom a{
+    text-align: right;
+    height: 150px;
+    text-decoration: none;
+}
+#box .box-1 .dele{
+     display:inline-block;
+    position:absolute;
+    right:20px;
+    top:0;
+    height:20px;
+    width:20px;
+}
+#box .box-1 .dele img{
+    display:inline-block;
+    position:absolute;
+    right:0;
+    top:0;
+    height:20px;
+    width:20px;
+    
+}
+/* #box .box-1 .dele{
+    display:none;
+} */
+/*<!-- 第一块 结束-->*/
+.floo{
+    height:91px;
+    background:url(../images/bg_bottom.jpg) repeat-x;
+}
+
+
+

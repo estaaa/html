@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>编辑货品</title>
+<link href="__CONTROLLER_VIEW__/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__CONTROLLER_VIEW__/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__CONTROLLER_VIEW__/js/jquery.js"></script>
+<!-- <script type="text/javascript" src="__CONTROLLER_VIEW__/js/jquery.idTabs.min.js"></script> -->
+<script type="text/javascript" src="__CONTROLLER_VIEW__/js/select-ui.min.js"></script>
+
+<script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+
+<!-- 引入编辑器**************************************** -->
+   <script type="text/javascript" charset="utf-8" src="__STATIC__/ueditor1_4_3/ueditor.config.js"></script>
+   <script type="text/javascript" charset="utf-8" src="__STATIC__/ueditor1_4_3/ueditor.all.min.js"> </script>
+   <script type="text/javascript" charset="utf-8" src="__STATIC__/ueditor1_4_3/lang/zh-cn/zh-cn.js"></script>
+   <!-- 结束************************************************* -->
+<link href="__STATIC__/uploadify/uploadify.css" type="text/css" rel="stylesheet">
+<script type="text/javascript">
+    KE.show({
+        id : 'content7',
+        cssPath : './index.css'
+    });
+  </script>
+  
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $(".select1").uedSelect({
+		width : 345			  
+	});
+	$(".select2").uedSelect({
+		width : 167  
+	});
+	$(".select3").uedSelect({
+		width : 100
+	});
+});
+
+
+
+
+
+</script>
+
+</head>
+
+<body>
+<form action="" method="post" accept-charset="utf-8" enctype='multipart/form-data'>
+	<div class="place">
+  
+    <span>位置：</span>
+    <ul class="placeul">
+    
+     
+    
+    <li><a href="#">首页</a></li>
+    <li><a href="#">编辑货品</a></li>
+    </ul>
+    </div>
+    
+    <div class="formbody">
+    
+    
+    <div id="usual1" class="usual"> 
+    
+    <div class="itab">
+  	<ul> 
+    <li><a href="#tab1" class="selected">编辑货品</a></li> 
+    
+  	</ul>
+    </div> 
+    
+  	<div id="tab1" class="tabson" style="width:500px;margin:0 auto;">
+    
+    <div class="formtext">Hi，<b>admin</b>，欢迎您试用编辑功能！</div>
+    
+    <ul class="forminfo">
+    <foreach from="$spec" key="$k" value="$v">
+    <li><label>{$v.stitle}<b>*</b></label>
+        <div class="cityleft">
+        <select class="select2" name="attrand[]">
+        <option value="0">请选择</option>
+        <foreach from="$v['content']" key="$kk" value="$vv"> 
+        <option value="{$vv.attid}" <foreach from="$oldData['attrand']" key='$key' value="$value">
+            <if value="$vv['attid']==$value">selected</if>
+        </foreach>  >{$vv.avalue}</option>
+        </foreach>
+
+        </select>
+        </div>
+    </li>
+    </foreach>
+    
+    <li><label>产品编码<b>*</b></label><input name="styleid" type="text" class="dfinput" value="{$oldData.styleid}"  style="width:218px;"/></li>
+    <li><label>库存<b>*</b></label><input name="stock" type="text" class="dfinput" value="{$oldData.stock}"  style="width:218px;"/></li>
+
+   
+    
+   <input name="" type="submit" class="btn" value="添加"/>
+   </form>    
+	</div> 
+ 
+	<script type="text/javascript"> 
+      $("#usual1 ul").idTabs(); 
+    </script>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	</script>
+    
+    
+    
+    
+    
+    </div>
+
+
+</body>
+
+</html>

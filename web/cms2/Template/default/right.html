@@ -1,0 +1,52 @@
+<!-- 右侧区域 -->
+        <div class="right">
+            <div class='hd_title'>
+                <strong>标签云</strong>    
+            </div>
+            <div id="tagBox" class='tags'>
+            <tag>
+                <a href="{$field.url}">{$field.tagname}</a>  
+             </tag>               
+            </div>
+            <div class='hd_title'>
+                <strong>热门文章</strong>   
+            </div>
+            <ul class='arc_list'>
+            <listcont arcAttr="热门" rows="3">
+                    <li>
+                        <div class='image'>
+                            <a href="{$field.url}">
+                                <img src="{$field.thumb}" alt=""  />
+                            </a>
+                        </div>
+                        <h2><a href="{$field.url}">{$field.title}</a></h2>
+                        <p>
+                            <em>{$field.sendtime|date:'m-d',@@}</em><span>{$field.total}条评论</span>
+                        </p>
+                    </li>
+               </listcont>     
+            </ul>
+            <div class='hd_title'>
+                <strong>推荐文章</strong>   
+            </div>
+            
+            <ul class='arc_list'>
+                
+               <listcont arcAttr="推荐" rows="3">
+                    <li>
+                        <div class='image'>
+                            <a href="{$field.url}">
+                                <img src="{$field.thumb}" alt=""/>
+                            </a>
+                        </div>
+                        <h2><a href="{$field.url}">{$field.title}</a></h2>
+                        <p>
+                            <em>{$field.sendtime|date:'m-d',@@}</em><span>{$field.total}条评论</span>
+                        </p>
+                    </li>
+               </listcont>   
+                   
+            
+            </ul>
+        </div>
+        <!-- 右侧区域结束 -->

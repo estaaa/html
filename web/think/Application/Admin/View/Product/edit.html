@@ -1,0 +1,526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>修改产品</title>
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/Admin/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__STATIC__/Js/jquery-1.7.2.min.js"></script>
+<!-- <script type="text/javascript" src="__CONTROLLER_VIEW__/js/jquery.idTabs.min.js"></script> -->
+<script type="text/javascript" src="__PUBLIC__/Admin/js/select-ui.min.js"></script>
+
+<!-- <script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script> -->
+
+<!-- 引入编辑器**************************************** -->
+   <script type="text/javascript" charset="utf-8" src="__STATIC__/ueditor1_4_3/ueditor.config.js"></script>
+   <script type="text/javascript" charset="utf-8" src="__STATIC__/ueditor1_4_3/ueditor.all.min.js"> </script>
+   <script type="text/javascript" charset="utf-8" src="__STATIC__/ueditor1_4_3/lang/zh-cn/zh-cn.js"></script>
+   <!-- 结束************************************************* -->
+<!-- <link href="__STATIC__/uploadify/uploadify.css" type="text/css" rel="stylesheet"> -->
+  <link rel="stylesheet" type="text/css" href="__STATIC__/uplode/diyUpload/css/webuploader.css">
+  <link rel="stylesheet" type="text/css" href="__STATIC__/uplode/diyUpload/css/diyUpload.css">
+  <script type="text/javascript" src="__STATIC__/uplode/diyUpload/js/webuploader.html5only.min.js"></script>
+  <script type="text/javascript" src="__STATIC__/uplode/diyUpload/js/diyUpload.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $(".select1").uedSelect({
+		width : 345			  
+	});
+	$(".select2").uedSelect({
+		width : 167  
+	});
+	$(".select3").uedSelect({
+		width : 100
+	});
+});
+
+$(function(){
+// 点击x删除图片
+$('.forminfo li i.close').live('click',function(){
+  var liObj = $(this).parents('a.list-left');
+
+  //找到父级li里面的地址
+  var path = liObj.attr('path');
+  //发异步到服务器删除
+  $.ajax({
+    type:"post",
+    url:"{:U('delImg')}",
+    data:{path:path},
+    success:function(data){
+      //移除图片
+      liObj.remove();
+    }
+  });
+})
+
+
+
+
+
+})
+
+
+$(function(){
+  // 保存旧数据
+  var oldspecHtml = $('#spec').html();
+   var oldattrHtml = $('#attr').html();
+ 
+  // 异步获得规格和属性
+  // change事件 针对下拉菜单
+  $("select[name=cid]").change(function(){
+      var tid = $(":selected").attr('tid');
+      // 获得默认数据
+      var spechtmlnum = $(":selected").attr('spec');
+      var attrhtmlnum = $(":selected").attr('attr');
+      // 判断是否是旧数据
+      if(spechtmlnum=='3'){
+        if(oldspecHtml!=''){
+          $('#spec').html(oldspecHtml);
+       }
+       if(oldattrHtml!=''){
+        $('#attr').html(oldattrHtml);
+       }
+        return;
+      }
+
+      
+  
+      if(tid==0){
+        return alert('不能选择顶级分类');
+      }
+      $.ajax({
+        type:"post",
+        data:{tid:tid},
+        url:"{:U('getAttrSpec')}",
+        dataType:'json',
+        success:function(phpData){
+          // 属性
+          var attr = '';
+          // 规格
+          var spec = '';
+          $.each(phpData,function(k,v){
+            // 如果是属性(属性是不可选的)
+            if(v.is_edit==0){
+              attr +='<tr><td>'+v.stitle+'</td><td><select class="select2" name="avalue['+v.sid+'][]"><option value="0">请选择</option>';
+              $.each(v.content,function(kk,vv){
+                attr += '<option value="'+vv+'">'+vv+'</option>';
+              });
+
+              attr += '</select></td></tr>';
+            }else{
+              spec += '<tr><td>'+v.stitle+'</td><td><select name="spec['+v.sid+'][avalue][]"><option  value="0">请选择</option>';
+              $.each(v.content,function(kk,vv){
+                spec += '<option value="'+vv+'">'+vv+'</option>';
+              });
+
+              spec += '</select></td><td>附加价格</td><td><input type="text" name="spec['+v.sid+'][added][]" value="" style="border:1px solid #ccc;height:25px;"></td><td><a href="javascript:;" class="addlist">增加一项</a></td><td><a class="dellist" href="javascript:;">删除</a></td></tr>';
+            }
+          })
+
+          $('#attr').html(attr);
+          $('#spec').html(spec);
+
+        }
+      })
+  })
+})
+
+
+$(function(){
+
+  $('.addlist').live('click',function(){
+    var listhtml = $(this).parents('tr').clone();
+    $(this).parents('tr').after(listhtml);
+    
+  })
+
+  $('.dellist').live('click',function(){
+    $(this).parents('tr').hide();
+  })
+
+
+  $('.parentFileBox .fileBoxUl li .diyCancel').click(function(){
+    var liObj = $(this).parents('li.diyUploadHover').remove();
+    // $(this).siblings('input').remove();
+   })
+})
+
+</script>
+<style type="text/css" media="screen">
+  .list-left,.hd-h70{
+    width:50px;
+    height:50px;
+    margin-left:5px;
+    float: left
+    ;
+  }
+  .list-left{
+    position: relative;
+  }
+  .list-left img{
+    margin:0px;
+    padding:0px;
+  }
+  .forminfo li i.close{
+    position:absolute;
+    top:0px;
+    height:12px;
+    width:12px;
+    text-align: center;
+    cursor:pointer;
+    line-height:12px;
+    background: red;
+    padding:0px;
+    right:0px;
+    display: block;
+  }
+  .forminfo li b.closed{
+    position:absolute;
+    top:0px;
+    height:12px;
+    width:12px;
+    text-align: center;
+    cursor:pointer;
+    line-height:12px;
+    background: red;
+    padding:0px;
+    right:0px;
+    color:#fff;
+    display: block;
+  }
+   #spec select,#attr select{
+    opacity: 1;
+    width:100px;
+    height:25px;
+    color:red;
+  }
+  #spec{
+    width:700px;
+  } 
+  #spec tr,#attr tr{
+    width:700px;
+    height:30px;
+
+    border-bottom:1px solid #ccc;
+  }
+
+  #spec tr td,#attr tr td{
+    width:200px;
+    height:30px;
+    text-align: left;
+  }
+ 
+  #edit{
+    width:800px;
+    height:20px;
+    
+  }
+
+ #edui561_toolbarbox,#edui562{
+    width:800px;
+    height:100px;
+  }
+ .edit_hd{
+  margin-top:20px;
+  width:800px;
+ 
+ }
+#edui282_elementpath{
+  display:none;
+}
+</style>
+</head>
+
+<body>
+<form action="" method="post" accept-charset="utf-8" enctype='multipart/form-data'>
+	<div class="place">
+  
+    <span>位置：</span>
+    <ul class="placeul">
+    
+     
+    
+    <li><a href="#">首页</a></li>
+    <li><a href="#">编辑产品</a></li>
+    </ul>
+    </div>
+    
+    <div class="formbody">
+    
+    
+    <div id="usual1" class="usual"> 
+    
+    <div class="itab">
+  	<ul> 
+    <li><a href="#tab1" class="selected">修改产品</a></li> 
+    
+  	</ul>
+    </div> 
+    
+  	<div id="tab1" class="tabson" style="width:500px;margin:0 auto;">
+    
+    <div class="formtext">Hi，<b>admin</b>，欢迎您试用信息修改功能！</div>
+    
+    <ul class="forminfo">
+    <li><label>所属分类<b>*</b></label>
+        <div class="cityleft">
+        <select class="select2" name="cid" >
+        <option value="0">请选择</option>
+        <volist name="newCate" id="v"> 
+        <option value="{$v.cid}" tid="{$v.type_tid}" <if condition="$data['cid']==$v['cid']">selected spec=3</if>>{$v._name}</option>
+        </volist>
+
+        </select>
+        </div>
+    </li>
+   <li><label>所属品牌<b>*</b></label>
+       <div class="cityleft">
+       <select class="select2" name="brand_bid">
+       <option  value="0">请选择</option>
+       <volist name="bindData" id="v"> 
+               <option value="{$v.bid}" <if condition="$v['bid']==$data['brand_bid']"> selected </if>>{$v.title}</option>
+       </volist>
+       </select>
+       </div>
+   </li>
+    <li><label>产品标题<b>*</b></label><input name="p_title" type="text" class="dfinput" value="{$data.p_title}"  style="width:218px;"/></li>
+    <li><label>产品描述</label><input name="pro_des" type="text" class="dfinput" value="{$data.pro_des}"  style="width:218px;"/></li>
+    <li>
+         <label>是否推荐</label>
+         <span style='display:inline;line-height: 36px;'>是</span>
+         <input name="is_sustain" type="radio" class="dfinput" value="1"  style="width:12px;height:12px;" <if condition="$data['is_sustain']==1">checked="checked" </if>/>
+         <span style='display:inline;line-height: 36px;'>否</span>
+         <input name="is_sustain" type="radio" class="dfinput" value="0"  style="width:12px;height:12px;" <if condition="$data['is_sustain']==0">checked="checked" </if>/>
+    </li>
+    <li><label>活动信息</label><input name="activity" type="text" class="dfinput" value="{$data.activity}"  style="width:218px;"/></li>
+    <li><label>赠送货物</label><textarea name="give" class="dfinput"  style="width:218px;height:100px;">{$data.give}</textarea><span style="color:red;padding:4px 100px;">多个以','号隔开</span></li>
+     <li><label>市场价<b></b></label><input name="market_price" type="text" class="dfinput" value="{$data.p_cost}"  style="width:218px;"/></li>
+    <li><label>商城价格<b>*</b></label><input name="p_cost" type="text" class="dfinput" value="{$data.market_price}"  style="width:218px;"/></li>
+    <li><label>产品编码<b>*</b></label><input name="p_code" type="text" class="dfinput" value="{$data.p_code}"  style="width:218px;"/></li>
+    <li><label>运费<b>*</b></label><input name="carriage" type="text" class="dfinput" value="{$data.carriage}"  style="width:218px;"/></li>
+    <li><label>库存<b>*</b></label><input name="surplus" type="text" class="dfinput" value="{$data.surplus}"  style="width:218px;"/></li>
+
+    <li><label>属性<b>*</b></label>
+
+      <table id="attr">
+     
+      <volist name="attrData" id="v" key="k">
+       <if condition="$v['is_edit']==0">
+        <tr>
+
+          <td>{$v.stitle}</td>
+          <td>
+            <select name="avalue[{$v.sid}][]" class="select2" style="opacity:0;width:150px;overflow: hidden;">
+            <option value="0">请选择</option>
+            <volist name="v['content']" key="kk" id="vv">
+              
+              <option <if condition="$v['avalue']==$vv"> selected </if> value="{$vv}">{$vv}</option>
+            </volist>
+            </select>
+          </td>
+        </tr>
+        
+        </if>
+        </volist>
+      </table>
+    </li>
+    <li><label>规格<b>*</b></label>
+      <table id="spec">
+       <volist name="attrData" id="v">
+        <if condition="$v['is_edit']==1">
+          <tr>
+            <td>{$v.stitle}</td>
+            <td>
+              <select name="spec[{$v.sid}][avalue][]">
+              <option value="0">请选择</option>
+              <volist name="v['content']" key="kk" id="vv">
+                
+                <option <if condition="$v['avalue']==$vv"> selected </if> value="{$vv}">{$vv}</option>
+              </volist>
+              </select>
+            </td>
+            <td>附加价格</td>
+            <td>
+            <input type="text" style="border:1px solid #ccc;height:25px;" value="{$v.added}" name="spec[{$v.sid}][added][]"></td>
+            <td>
+              
+                <a class="addlist" href="javascript:;">增加一项</a>
+              
+              </td>
+              <td><a class="dellist" href="javascript:;">删除</a></td>
+              </tr>
+          </if>
+          </volist>
+
+
+      </table>
+    </li>
+
+
+
+
+
+      <li ><label>列表页图片<b>*</b></label>
+
+      <input id="file" type="file" multiple="true" name="list_img[]" style="display:none;"/>
+      <div id="box">
+      
+      <div id="test" >
+          
+      </div>
+      <div>
+        <div class="parentFileBox">             
+        <ul class="fileBoxUl">
+
+          <li class="diyUploadHover">          
+            <div class="viewThumb">
+             <img src="__ROOT__/{$list_thumb}" class='hd-w80 hd-h70'><input type="hidden" name="list_thumb" value="{$list_thumb}"/>
+                      
+             </div>          
+            <div class="diyCancel"></div>        
+          </li>
+          </ul>          
+         </div>
+      </div>
+      </div>
+      <script  type="text/javascript" charset="utf-8">
+        $('#test').diyUpload({
+          url:"{:U('upload')}",
+          success:function(data){
+            var path ='<input type="hidden" name="list_thumb" value="./Uploads/Content/'+data+'"/>';
+            $("#file").after(path);
+          },
+          error:function(err) {
+            // console.info(err);  
+          }
+        });
+
+      </script>
+    </li>
+     <li ><label>详情页图片<b>*</b></label>
+     <input id="content" type="file" multiple="true" name="big" style="display:none;"/>
+      <div id="box1">
+      <div id="demo" ></div>
+      <div>
+        <div class="parentFileBox">             
+        <ul class="fileBoxUl">
+        <volist name="medium" id="v">
+          <li class="diyUploadHover">          
+            <div class="viewThumb">
+              <img src="__ROOT__/{$v}" height='150px' width='170px'>
+              <input type="hidden" name="thumb[]" value="{$v}"/>
+             </div>          
+            <div class="diyCancel"></div>        
+          </li>
+          </volist>
+          </ul>          
+         </div>
+      </div>
+      </div>
+      <script  type="text/javascript" charset="utf-8">
+        $('#demo').diyUpload({
+          url:"{:U('upload')}",
+          success:function(data){
+            var path='<input type="hidden" name="thumb[]" value="./Uploads/Content/'+data+'"/>';
+            $("#content").after(path);
+          },
+          error:function(err) {
+            // console.info(err);  
+          }
+        });
+
+      </script>
+    </li>
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+<li id="edit"><label>产品详情<b>*</b></label></li>
+    <!-- 编辑器**************************** -->
+    <!-- 第一个script可以看做是一个标签 -->
+    <!-- name是可以传参的 -->
+    <div class="edit_hd" style="">
+       <script id="ed1" type="text/plain"  name="pro_content">
+        {$data.pro_content}  
+       </script>
+      <script>
+        var ue = UE.getEditor('ed1');
+      </script>
+
+    </div>
+     
+
+
+
+
+    <li id="edit"><label>包装清单<b>*</b></label></li>
+    <!-- 编辑器**************************** -->
+    <!-- 第一个script可以看做是一个标签 -->
+    <!-- name是可以传参的 -->
+    <div class="edit_hd">
+       <script id="ed2" type="text/plain"  name="pack_list">
+        {$data.pack_list}  
+       </script>
+      <script>
+        var ue = UE.getEditor('ed2');
+      </script>
+
+    </div>
+    
+
+
+
+    <li id="edit"><label>售后服务<b>*</b></label></li>
+    <!-- 编辑器**************************** -->
+    <!-- 第一个script可以看做是一个标签 -->
+    <!-- name是可以传参的 -->
+    <div class="edit_hd">
+       <script id="ed" type="text/plain"  name="after_sale">
+        {$data.after_sale}
+       </script>
+      <script>
+        var ue = UE.getEditor('ed');
+      </script>
+
+    </div>
+   
+    </ul>
+    
+    </div> 
+   <input name="" type="submit" class="btn" value="马上发布"/>
+   </form>    
+	</div> 
+ 
+<!--   <script type="text/javascript"> 
+      $("#usual1 ul").idTabs(); 
+    </script> -->
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	</script>
+    
+    
+    
+    
+    
+    </div>
+
+
+</body>
+
+</html>

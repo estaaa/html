@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="__VIEW__/Category/css/style.css" rel="stylesheet" type="text/css" />
+<!-- <link href="__VIEW__/Category/css/select.css" rel="stylesheet" type="text/css" /> -->
+<script type="text/javascript" src="__VIEW__/Category/js/jquery.js"></script>
+
+
+  
+
+<style type="text/css" media="screen">
+    .tabson{
+        width:900px;
+    }
+    #tab1 ul.forminfo li{
+        width:400px;float:left;
+        clear: none;
+    }
+    #tab1 ul.forminfo li span{
+        line-height: 32px;
+        color: red;
+    }
+</style>
+</head>
+
+<body>
+
+
+    
+    <div class="formbody">
+    
+    
+    <div id="usual1" class="usual"> 
+    
+    <div class="itab">
+  	<ul> 
+    <li><a href="#tab1" class="selected">用户信息</a></li>
+  	</ul>
+    </div> 
+    
+  	<div id="tab1" class="tabson">
+    
+    <div class="formtext">Hi，<b>{$hd.session.adminname}</b>，欢迎您查看用户信息！</div>
+    <ul class="forminfo">
+    <li id="img_box">
+        <label>用户头像</label>
+        <img id="img"  <if value="$allUser['thumb']"> src="__ROOT__/{$allUser.thumb}" <else/> src="__STATIC__/images/headPic.jpg.png" </if> >
+       
+       
+
+    <li><label>用户名字:</label><span>{$allUser.username}</span></li>
+
+
+    
+    <li>
+        <label>用户昵称:</label>
+        <if value="$allUser['nickname']" >
+            <span>{$allUser.nickname}</span>
+            <else/>
+            <span>此用户比较懒还没有填写</span>
+        </if>
+    </li>
+    
+    <li><label>用户金钱:</label><span>{$allUser.money}元</span></li>
+
+    <li>
+        <label>用户邮箱:</label>
+        <if value="$allUser['emli']" >
+        <span>{$allUser.emli}</span>
+        <else/>
+        <span>此用户比较懒还没有填写</span>
+        </if>
+    </li>
+
+
+    <li>
+        <label>用户电话:</label>
+        <if value="$allUser['iphoto']" >
+        <span>{$allUser.iphoto}</span>
+        <else/>
+        <span>此用户比较懒还没有填写</span>
+        </if>
+    </li>
+
+    <li>
+        <label>用户生日:</label>
+        <if value="$allUser['birthday']" >
+        <span>{$allUser.birthday}</span>
+        <else/>
+        <span>此用户比较懒还没有填写</span>
+        </if>
+       
+    </li>
+
+    <li>
+        <label>用户所在地:</label>
+        <if value="$allUser['city']" >
+        <span>{$allUser.city}</span>
+        <else/>
+        <span>此用户比较懒还没有填写</span>
+        </if>
+       
+    </li>
+
+    <li>
+            <label>用户性别:</label>
+            <if value="$allUser['max']==3"><span>保密</span></if> 
+            <if value="$allUser['max']==0"><span>男</span></if> 
+            <if value="$allUser['max']==1"><span>女</span></if>
+
+    </li>
+
+
+    <li>
+            <label>是否被锁定</label>
+        
+          <if value="$allUser['is_lock']==1"><span>是</span></if>
+          <if value="$allUser['is_lock']==0"><span>否</span></if>
+      
+    </li>
+
+
+
+    <li>
+            <label>管理员</label>
+        
+             <if value="$allUser['is_admin']==0"><span>普通用户</span></if>
+            <if value="$allUser['is_admin']==3"><span>vip用户</span></if>
+         
+      
+    </li>
+    
+    
+
+    
+    
+
+
+   
+    <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="返回"/></li>
+    </ul>
+
+    </div> 
+    
+    
+  	<div id="tab2" class="tabson">
+    
+    
+
+    
+ 
+    
+   
+  
+    
+    </div>  
+       
+	</div> 
+ 
+	<script type="text/javascript"> 
+      $("#usual1 ul").idTabs(); 
+    </script>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+    $('.btn').click(function(){
+        location.href="{|U:'index'}";
+    })
+	</script>
+    
+    
+    
+    
+    
+    </div>
+
+
+</body>
+
+</html>

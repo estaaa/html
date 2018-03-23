@@ -1,0 +1,305 @@
+
+<!-- 左侧***************************************************************** -->
+<div id="sidebar">
+
+<!-- 左側 图片 显示3张*******************************************-->
+
+<div class="widget widget_text" id="text-2">      
+    <div class="textwidget">
+    <listcont rows="3">
+        <img src="{$field.thumb}" style="height:130px;width:280px;">
+    </listcont>
+    </div>
+    <div class="clear"></div>
+</div>
+<!-- 左側圖片end *******************************************-->
+
+
+
+<!-- 图片混排*********************************************** -->
+<div class="widget posts-recommend" id="postsrecommend-10">
+    <div class="widget-title">
+        <h3>图文混排</h3>
+            <div class="clear"></div>
+    </div>
+    <ul class="posts-recommend posts-with-image-list">
+      <!-- 循环区域********************************************* -->
+      <listcont rows="3" order="csort DESC">
+        <li>
+            <div class="thumb">
+                <a href="{$field.url}">
+                  <img src="{$field.thumb}" class="attachment-thumbnail wp-post-image" alt="2014101510071101" height="93" width="150">
+                </a>
+            </div>
+            <div class="title">
+              <a href="{$field.url}">{$field.title}</a>
+            </div>
+            <div class="excerpt">
+                <p>{$field.digest}... 
+                    <a class="more-link" href="{$field.url}" rel="nofollow">继续阅读 »</a>
+               </p>
+            </div>
+            <div class="clearfix clear"></div>
+        </li>
+    </listcont>
+ <!-- 循环区域end********************************************* -->
+
+    </ul>
+    <div class="clear"></div>
+</div>
+<!-- 图片混排 end*********************************************** -->
+
+
+
+<!-- 喜欢最多 *******************************************************8-->
+<div class="widget posts-recommend" id="postsrecommend-12">
+    <div class="widget-title">
+        <h3>喜欢最多</h3>
+            <div class="clear"></div>
+    </div>
+    <ul class="posts-recommend posts-with-image-list">
+     <!-- 循环区域********************************************* -->
+     <listcont rows="3" order="click DESC">
+             <li>
+                 <div class="thumb">
+                     <a href="{$field.url}">
+                       <img src="{$field.thumb}" class="attachment-thumbnail wp-post-image" alt="2014101510071101" height="93" width="150">
+                     </a>
+                 </div>
+                 <div class="title">
+                   <a href="{$field.url}">{$field.title}</a>
+                 </div>
+                 <div class="excerpt">
+                     <p>{$field.digest}... 
+                         <a class="more-link" href="{$field.url}" rel="nofollow">继续阅读 »</a>
+                    </p>
+                 </div>
+                 <div class="clearfix clear"></div>
+             </li>
+         </listcont>
+ <!-- 循环区域end********************************************* -->
+    </ul>
+    <div class="clear"></div>
+</div>
+<!-- 喜欢最多 end*******************************************************8-->
+
+
+<!-- 分类下的文章 ****************************************************-->
+<div class="widget posts-recommend" id="postsrecommend-4">
+    <div class="widget-title">
+        <h3>分类下的文章</h3>
+            <div class="clear"></div>
+    </div>
+    <ul class="posts-recommend">
+     <!-- 循环区域********************************************* -->
+        <listcont row="8">
+              <li>
+                <a href="{$field.url}" title="《连线》：可穿戴技术开发商应关注医疗市场">{$field.title}</a>
+              </li>
+              </listcont>
+     <!-- 循环区域end********************************************* -->
+    </ul>
+    <div class="clear"></div>
+</div>
+<!-- 分类下的文章end ****************************************************-->
+
+
+
+
+
+
+
+<!-- 浏览次数排序************************************************ -->
+<div class="widget posts-recommend" id="postsrecommend-3">
+    <div class="widget-title">
+        <h3>浏览次数排序</h3>
+        <div class="clear"></div>
+    </div>
+    <ul class="posts-recommend posts-with-image-list">
+    <!-- 循环区域********************************************* -->
+    <listcont rows="5" order="click DESC">
+      <li>
+        <div class="thumb">
+            <a href="{$field.url}" title="就算是Google来操盘在线医疗，也是困难重重">
+                <img src="{$field.thumb}" alt="2014101510071101" height="93" width="150">
+            </a>
+        </div>          
+        <div class="title">
+          <a href="" title="就算是Google来操盘在线医疗，也是困难重重">{$field.title}</a>
+        </div>
+        <div class="excerpt">
+            <p>{$field.digest}... 
+              <a class="more-link" href="" rel="nofollow">继续阅读 »</a>
+            </p>
+        </div>
+        <div class="clearfix clear"></div>
+    </li>
+    </listcont>
+    <!-- 循环区域end********************************************* -->
+  </ul>
+  <div class="clear"></div>
+</div>
+<!-- 浏览次数排序end************************************************ -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 置顶文章推荐********************************************* -->
+<div class="widget posts-recommend" id="postsrecommend-9">
+    <div class="widget-title">
+        <h3>置顶文章推荐</h3>
+        <div class="clear"></div>
+    </div>
+    <ul class="posts-recommend">
+    <!-- 循环区域********************************************* -->
+     <listcont arcAttr="置顶">
+      <li>
+        <a href="{$field.url}" title="">{$field.title}</a>
+      </li>
+      </listcont>
+    <!-- 循环区域end********************************************* -->
+    </ul>
+    <div class="clear"></div>
+</div>
+<!-- 置顶文章推荐end********************************************* -->
+
+
+
+
+
+<!-- 评论最热*************************************************** -->
+<div class="widget posts-recommend" id="postsrecommend-5">
+    <div class="widget-title">
+        <h3>评论最热</h3>
+        <div class="clear"></div>
+    </div>
+    <ul class="posts-recommend">
+     <!-- 循环区域********************************************* -->
+       <listcont arcAttr="置顶">
+            <li>
+              <a href="{$field.url}" title="">{$field.title}</a>
+            </li>
+            </listcont>
+     <!-- 循环区域end********************************************* -->
+    </ul>
+    <div class="clear"></div>
+</div>
+<!-- 评论最热end*************************************************** -->
+
+
+
+
+
+
+<!-- 最受喜欢*************************************************** -->
+<div class="widget posts-recommend" id="postsrecommend-11">
+    <div class="widget-title"><h3>最受喜欢</h3><div class="clear"></div></div>
+    <ul class="posts-recommend posts-with-image-list">
+     <!-- 循环区域********************************************* -->
+       <listcont rows="5" order="click ASC">
+            <li>
+              <div class="thumb">
+                  <a href="{$field.url}" title="">
+                      <img src="{$field.thumb}" alt="2014101510071101" height="93" width="150">
+                  </a>
+              </div>          
+              <div class="title">
+                <a href="{$field.url}" title="">{$field.title}</a>
+              </div>
+              <div class="excerpt">
+                  <p>{$field.digest}... 
+                    <a class="more-link" href="{$field.url}" rel="nofollow">继续阅读 »</a>
+                  </p>
+              </div>
+              <div class="clearfix clear"></div>
+          </li>
+          </listcont>
+     <!-- 循环区域end********************************************* -->
+  </ul>
+  <div class="clear"></div>
+</div>
+<!-- 最受喜欢end*****************************************************8 -->
+
+
+
+
+
+
+<!-- 
+
+
+忠实读者 ************************************88
+<div class="widget user-avatar-list" id="useravatarlist-5">
+    <div class="widget-title">
+        <h3>忠实读者</h3>
+        <div class="clear"></div>
+    </div>
+    <ul>
+    循环区域*********************************************
+        <li>
+            <a href="" title="否子戈 发表13条评论">
+                <img src="__TEMPLATE__/5c6d0e83c3d384da832adf8a5acafe30.jpg" class="avatar avatar-100" alt="" height="50" width="50">
+            </a>
+        </li>
+    循环区域end*********************************************
+    </ul>
+    <div class="clear"></div>
+</div> 
+忠实读者 end************************************88
+
+
+ -->
+
+
+
+
+
+
+<!-- 标签************************************************************* -->
+<div style="position: static; width: 300px; top: 10px; left: 1034.6px; z-index: 999;" id="fixed-sidebar">
+    <div class="widget widget_tag_cloud" id="tag_cloud-2">
+          <div class="widget-title">
+                <h3>标签</h3>
+                <div class="clear"></div>
+          </div>
+          <div class="tagcloud">
+              <!-- 循环区域********************************************* -->
+              <tag>
+              <if value="$field['tid']==2||$field['tid']==5||$field['tid']==7||$field['tid']==13||$field['tid']==18||$field['tid']==20||$field['tid']==26">
+               <a href="{$field.url}" class="tag-link-46" title="2个话题" style="font-size: 16.4pt;">{$field.tagname}</a>
+              </if>
+              <a href="{$field.url}" class="tag-link-33" title="1个话题" style="font-size: 8pt;">{$field.tagname}</a>
+              </tag>
+             
+            <!-- 循环区域end********************************************* -->
+          </div>
+          <div class="clear"></div>
+    </div>
+    <div class="widget widget_text" id="text-7">     
+        <div class="textwidget">
+              <div id="admin-options-ad-边栏悬浮-4927">
+                    <script type="text/javascript"><!--
+                    google_ad_client = "ca-pub-0625745788201806";
+                    /* 乌徒帮右侧边栏广告 */
+                    google_ad_slot = "2073047518";
+                    google_ad_width = 300;
+                    google_ad_height = 250;
+                    //-->
+                    </script>
+                    <script type="text/javascript" src="__TEMPLATE__/show_ads.js"></script>
+              </div>
+        </div>
+        <div class="clear"></div>
+  </div>
+</div>
+<!-- 标签end************************************************************* -->
+</div>
+<!-- 左侧end***************************************************************** -->

@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>订单编辑</title>
+<link rel="stylesheet" type="text/css" href="__STATIC__/Bootstrap/css/bootstrap.min.css">
+<link href="__PUBLIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__STATIC__/Js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+    KE.show({
+        id : 'content7',
+        cssPath : './index.css'
+    });
+  </script>
+  
+<script type="text/javascript">
+$(document).ready(function(e) {
+    $(".select1").uedSelect({
+		width : 345			  
+	});
+	$(".select2").uedSelect({
+		width : 167  
+	});
+	$(".select3").uedSelect({
+		width : 100
+	});
+});
+</script>
+</head>
+
+<body>
+
+
+    
+    <div class="formbody">
+    
+    
+    <div id="usual1" class="usual"> 
+    
+    <div class="itab">
+  	<ul> 
+    <li><a href="#tab1" class="selected">订单编辑</a></li>
+  	</ul>
+    </div> 
+    
+  	<div id="tab1" class="tabson">
+    
+    <div class="formtext">Hi，<b>{$hd.session.adminname}</b>，欢迎您使用修改功能！</div>
+    <form action="" method="post" >
+    
+    
+    <ul class="forminfo">
+    <li><label>收货人<b>*</b></label><input name="add_people" type="text" class="dfinput" value="{$oldData.add_people}"  style="width:218px;"/></li>
+   <li><label>收货地址<b>*</b></label><input name="shop_city" type="text" class="dfinput" value="{$oldData.shop_city}"  style="width:218px;"/></li>
+   <li><label>详细地址<b>*</b></label><br />
+        <textarea name="address" style="border:1px solid #ccc;width:240px;height:60px;">{$oldData.address}</textarea>
+    </li>
+    <li><label>邮编<b></b></label><input name="postcode" type="text" class="dfinput" value="{$oldData.postcode}"  style="width:218px;"/></li>
+    <li><label>电话<b>*</b></label><input name="add_iphoto" type="text" class="dfinput" value="{$oldData.add_iphoto}"  style="width:218px;"/></li>
+    <li><label>总价格<b>*</b></label><input name="pic_all" type="text" class="dfinput" value="{$oldData.pic_all}"  style="width:218px;"/></li>
+    <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="马上发布"/></li>
+    </ul>
+    </form>
+    </div> 
+    
+    
+  	<div id="tab2" class="tabson">
+    
+    
+
+    
+ 
+    
+   
+  
+    
+    </div>  
+       
+	</div> 
+ 
+	<script type="text/javascript"> 
+      $("#usual1 ul").idTabs(); 
+    </script>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	</script>
+    
+    
+    
+    
+    
+    </div>
+
+
+</body>
+
+</html>

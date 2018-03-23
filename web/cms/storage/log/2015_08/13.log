@@ -1,0 +1,29 @@
+[ 2015-08-13T10:26:16+08:00 ]EXCEPTION: Method Api\Controller\CategoryController::index() does not exist
+[ 2015-08-13T10:26:31+08:00 ]EXCEPTION: Method Api\Controller\CategoryController::index() does not exist
+[ 2015-08-13T10:26:32+08:00 ]EXCEPTION: Method Api\Controller\CategoryController::index() does not exist
+[ 2015-08-13T10:26:33+08:00 ]EXCEPTION: Method Api\Controller\CategoryController::index() does not exist
+[ 2015-08-13T10:26:33+08:00 ]EXCEPTION: Method Api\Controller\CategoryController::index() does not exist
+[ 2015-08-13T10:26:47+08:00 ]EXCEPTION: Method Api\Controller\CategoryController::show() does not exist
+[ 2015-08-13T10:26:48+08:00 ]EXCEPTION: Method Api\Controller\CategoryController::show() does not exist
+[ 2015-08-13T11:47:12+08:00 ]EXCEPTION: Method Api\Controller\ArticleController::show() does not exist
+[ 2015-08-13T11:47:13+08:00 ]EXCEPTION: Method Api\Controller\ArticleController::show() does not exist
+[ 2015-08-13T11:47:46+08:00 ]EXCEPTION: Method Api\Controller\ArticleController::show() does not exist
+[ 2015-08-13T11:47:47+08:00 ]EXCEPTION: Method Api\Controller\ArticleController::show() does not exist
+[ 2015-08-13T11:47:48+08:00 ]EXCEPTION: Method Api\Controller\ArticleController::show() does not exist
+[ 2015-08-13T11:48:18+08:00 ]EXCEPTION: Method Api\Controller\ArticleController::show() does not exist
+[ 2015-08-13T11:48:54+08:00 ]EXCEPTION: Method Api\Controller\ArticleController::show() does not exist
+[ 2015-08-13T17:29:55+08:00 ]EXCEPTION: SELECT  *  FROM article WHERE  category_cid=?  LIMIT 0,5 ;BindParams:array (
+  0 => '3',
+)42S22;1054;Unknown column 'category_cid' in 'where clause'
+[ 2015-08-13T17:29:57+08:00 ]EXCEPTION: SELECT  *  FROM article WHERE  category_cid=?  LIMIT 0,5 ;BindParams:array (
+  0 => '6',
+)42S22;1054;Unknown column 'category_cid' in 'where clause'
+[ 2015-08-13T17:29:59+08:00 ]EXCEPTION: SELECT  *  FROM article WHERE  category_cid=?  LIMIT 0,5 ;BindParams:array (
+  0 => '8',
+)42S22;1054;Unknown column 'category_cid' in 'where clause'
+[ 2015-08-13T17:30:00+08:00 ]EXCEPTION: SELECT  *  FROM article WHERE  category_cid=?  LIMIT 0,5 ;BindParams:array (
+  0 => '6',
+)42S22;1054;Unknown column 'category_cid' in 'where clause'
+[ 2015-08-13T17:32:00+08:00 ]EXCEPTION: SELECT  *  FROM article WHERE  category_cid=?  LIMIT 0,5 ;BindParams:array (
+  0 => 'undefined',
+)42S22;1054;Unknown column 'category_cid' in 'where clause'

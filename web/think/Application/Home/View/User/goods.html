@@ -1,0 +1,341 @@
+<include file="Public:header" />
+<script src="__PUBLIC__/Js/user.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/Js/privata.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/user.css">
+<include file="Public:left" />
+<div id="user-right">
+              
+            
+             <!-- 我的订单 -->
+               <div id="user-indent">
+                  <div class="header">
+                      <span >我的订单</span>
+                     <!--  <a href="" class="clo">三个月之前商品</a>
+                      <s></s>
+                      <a href="">最近三个月商品</a> -->
+                  </div>
+                  <div class="in-nav">
+                       <a href="javascript:;" style="color:#f63;">全部</a>
+                      <a href="javascript:;">待支付</a>
+                      <a href="javascript:;">待评价</a>
+                      <a href="javascript:;">待收货</a>
+                      <!-- <a href="javascript:;">已完成</a> -->
+                      <a href="javascript:;">已取消</a>
+                  </div>
+                  <form action="" method="get" accept-charset="utf-8">
+                      
+                   
+                  
+                  <div class="he">
+                      <p><input type="checkbox" /><span>全选</span><a href="javascript:;">合并支付</a></p>
+                  </div>
+
+
+
+                   <div class="no-payment">
+                  
+                     <p>
+                       <span style="width:450px;">商品</span>
+                       <span  style="width:100px;">单价/元</span>
+                       <span style="width:80px;">数量</span>
+                       <span style="width:100px;">实付款/元</span>
+                       <span class="cz"  style="width:150px;">操作</span>
+                   </p>
+                   <div class="show" style="display:block">
+                   <if condition="$goodsData">
+                    <!-- 全部订单 -->
+                  <volist name="goodsData" key="k" id="v">
+                  <div class="box_pro" style="position:relative;width:940px;height:auto;">
+                       <!-- 盒子 -->
+                       <div class="payment-box">
+                           <div class="k kd" style="width:450px;">
+                               <a href="" class="a-img"><img src="images/100_100_11.jpg" alt=""></a>
+                               <a href="">{$v.info_code}</a>
+                           </div>
+                           <div class="k kd2"  style="width:100px;"><a href="">¥{$v.pic_all}</a></div>
+                           <div class="k kd3" style="width:80px;"><a href="">--</a></div>
+                           <div class="k " style="width:80px;"><a href="">{$v.pic_all}</a></div>
+                       </div>
+                       <!-- 盒子结束 -->
+                       <volist name="v['son']" key="kk" id="vv">
+                       <!-- 盒子 -->
+                       <div class="payment-box">
+                           <div class="k kd" style="width:450px;">
+                               <a href="" class="a-img"><img src="images/100_100_11.jpg" alt=""></a>
+                               <a href="">{$vv.p_title}</a>
+                           </div>
+                           <div class="k kd2"  style="width:100px;"><a href="">¥{$vv.pic}</a></div>
+                           <div class="k kd3" style="width:80px;"><a href="">{$vv.buy_num}</a></div>
+                           <div class="k " style="width:80px;"><a href="">--</a></div>
+                       </div>
+                       </volist>
+                      <!-- 盒子结束 -->
+                       <div class="kd4" style="padding-left: 35px;"><a href="" >立即支付</a>
+                               <!-- <a href="">修改订单</a> --><a href="{:U('cancel',array('infoid'=>$v['infoid']))}">取消订单</a>
+                       </div>
+                        <!-- 盒子结束 -->
+                     
+                  </div>
+                  </volist>
+                  <else/>
+                    <div class="notall">
+                      没有相应的信息哦!
+                    </div>
+                  </if>
+                  </div>
+                  <!-- 全部订单结束 -->
+                  <!-- 待支付订单 -->
+                 <div class="show">
+                                    <if condition="$goodsData">
+                                     <!-- 全部订单 -->
+                                   <volist name="goodsData" key="k" id="v">
+                                   <div class="box_pro" style="position:relative;width:940px;height:auto;">
+                                        <!-- 盒子 -->
+                                        <div class="payment-box">
+                                            <div class="k kd" style="width:450px;">
+                                                <a href="" class="a-img"><img src="images/100_100_11.jpg" alt=""></a>
+                                                <a href="">{$v.info_code}</a>
+                                            </div>
+                                            <div class="k kd2"  style="width:100px;"><a href="">¥{$v.pic_all}</a></div>
+                                            <div class="k kd3" style="width:80px;"><a href="">--</a></div>
+                                            <div class="k " style="width:80px;"><a href="">{$v.pic_all}</a></div>
+                                        </div>
+                                        <!-- 盒子结束 -->
+                                        <volist name="v['son']" key="kk" id="vv">
+                                        <!-- 盒子 -->
+                                        <div class="payment-box">
+                                            <div class="k kd" style="width:450px;">
+                                                <a href="" class="a-img"><img src="images/100_100_11.jpg" alt=""></a>
+                                                <a href="">{$vv.p_title}</a>
+                                            </div>
+                                            <div class="k kd2"  style="width:100px;"><a href="">¥{$vv.pic}</a></div>
+                                            <div class="k kd3" style="width:80px;"><a href="">{$vv.buy_num}</a></div>
+                                            <div class="k " style="width:80px;"><a href="">--</a></div>
+                                        </div>
+                                        </volist>
+                                       <!-- 盒子结束 -->
+                                        <div class="kd4" style="padding-left: 35px;"><a href="" >立即支付</a>
+                                               <!--  <a href="">修改订单</a> --><a href="{:U('cancel',array('infoid'=>$v['infoid']))}">取消订单</a>
+                                        </div>
+                                         <!-- 盒子结束 -->
+                                      
+                                   </div>
+                                   </volist>
+                                   <else/>
+                                     <div class="notall">
+                                       没有相应的信息哦!
+                                     </div>
+                                   </if>
+                                   </div>
+                  <!-- 待支付订单结束 -->
+
+                    <!-- 待评价 -->
+                   <div class="show">
+                                      <if condition="$notGoods">
+                                       <!-- 全部订单 -->
+                                     <volist name="notGoods" key="k" id="v">
+                                     <div class="box_pro" style="position:relative;width:940px;height:auto;">
+                                          <!-- 盒子 -->
+                                          <div class="payment-box">
+                                              <div class="k kd" style="width:450px;">
+                                                  <a href="" class="a-img"><img src="images/100_100_11.jpg" alt=""></a>
+                                                  <a href="">{$v.info_code}</a>
+                                              </div>
+                                              <div class="k kd2"  style="width:100px;"><a href="">¥{$v.pic_all}</a></div>
+                                              <div class="k kd3" style="width:80px;"><a href="">--</a></div>
+                                              <div class="k " style="width:80px;"><a href="">{$v.pic_all}</a></div>
+                                          </div>
+                                          <!-- 盒子结束 -->
+                                          <volist name="v['son']" key="kk" id="vv">
+                                          <!-- 盒子 -->
+                                          <div class="payment-box">
+                                              <div class="k kd" style="width:450px;">
+                                                  <a href="" class="a-img"><img src="images/100_100_11.jpg" alt=""></a>
+                                                  <a href="">{$vv.p_title}</a>
+                                              </div>
+                                              <div class="k kd2"  style="width:100px;"><a href="">¥{$vv.pic}</a></div>
+                                              <div class="k kd3" style="width:80px;"><a href="">{$vv.buy_num}</a></div>
+                                              <div class="k " style="width:80px;"><a href="">--</a></div>
+                                          </div>
+                                          </volist>
+                                         <!-- 盒子结束 -->
+                                          <div class="kd4" style="padding-left: 35px;"><!-- <a href="" >立即支付</a> -->
+                                                  <!-- <a href="">修改订单</a> --><!-- <a href="">取消订单</a> -->
+                                          </div>
+                                           <!-- 盒子结束 -->
+                                        
+                                     </div>
+                                     </volist>
+                                     <else/>
+                                       <div class="notall">
+                                         没有相应的信息哦!
+                                       </div>
+                                     </if>
+                                     </div>
+                    <!-- 待评价结束 -->
+                    <!-- 待收货 -->
+                    <div class="show">
+                                       <if condition="$waitData">
+                                        <!-- 全部订单 -->
+                                      <volist name="waitData" key="k" id="v">
+                                      <div class="box_pro" style="position:relative;width:940px;height:auto;">
+                                           <!-- 盒子 -->
+                                           <div class="payment-box">
+                                               <div class="k kd" style="width:450px;">
+                                                   <a href="" class="a-img"><img src="images/100_100_11.jpg" alt=""></a>
+                                                   <a href="">{$v.info_code}</a>
+                                               </div>
+                                               <div class="k kd2"  style="width:100px;"><a href="">¥{$v.pic_all}</a></div>
+                                               <div class="k kd3" style="width:80px;"><a href="">--</a></div>
+                                               <div class="k " style="width:80px;"><a href="">{$v.pic_all}</a></div>
+                                           </div>
+                                           <!-- 盒子结束 -->
+                                           <volist name="v['son']" key="kk" id="vv">
+                                           <!-- 盒子 -->
+                                           <div class="payment-box">
+                                               <div class="k kd" style="width:450px;">
+                                                   <a href="" class="a-img"><img src="images/100_100_11.jpg" alt=""></a>
+                                                   <a href="">{$vv.p_title}</a>
+                                               </div>
+                                               <div class="k kd2"  style="width:100px;"><a href="">¥{$vv.pic}</a></div>
+                                               <div class="k kd3" style="width:80px;"><a href="">{$vv.buy_num}</a></div>
+                                               <div class="k " style="width:80px;"><a href="">--</a></div>
+                                           </div>
+                                           </volist>
+                                          <!-- 盒子结束 -->
+                                           <div class="kd4" style="padding-left: 35px;"><a href="" >确认收货</a>
+                                                   <!-- <a href="">修改订单</a> --><!-- <a href="">取消订单</a> -->
+                                           </div>
+                                            <!-- 盒子结束 -->
+                                         
+                                      </div>
+                                      </volist>
+                                      <else/>
+                                        <div class="notall">
+                                          没有相应的信息哦!
+                                        </div>
+                                      </if>
+                                      </div>
+                    <!-- 待收货结束 -->
+                    <!-- 已取消订单 -->
+                   <div class="show">
+                                      <if condition="$abolishData">
+                                       <!-- 全部订单 -->
+                                     <volist name="abolishData" key="k" id="v">
+                                     <div class="box_pro" style="position:relative;width:940px;height:auto;">
+                                          <!-- 盒子 -->
+                                          <div class="payment-box">
+                                              <div class="k kd" style="width:450px;">
+                                                  <a href="" class="a-img"><img src="images/100_100_11.jpg" alt=""></a>
+                                                  <a href="">{$v.info_code}</a>
+                                              </div>
+                                              <div class="k kd2"  style="width:100px;"><a href="">¥{$v.pic_all}</a></div>
+                                              <div class="k kd3" style="width:80px;"><a href="">--</a></div>
+                                              <div class="k " style="width:80px;"><a href="">{$v.pic_all}</a></div>
+                                          </div>
+                                          <!-- 盒子结束 -->
+                                          <volist name="v['son']" key="kk" id="vv">
+                                          <!-- 盒子 -->
+                                          <div class="payment-box">
+                                              <div class="k kd" style="width:450px;">
+                                                  <a href="" class="a-img"><img src="images/100_100_11.jpg" alt=""></a>
+                                                  <a href="">{$vv.p_title}</a>
+                                              </div>
+                                              <div class="k kd2"  style="width:100px;"><a href="">¥{$vv.pic}</a></div>
+                                              <div class="k kd3" style="width:80px;"><a href="">{$vv.buy_num}</a></div>
+                                              <div class="k " style="width:80px;"><a href="">--</a></div>
+                                          </div>
+                                          </volist>
+                                         <!-- 盒子结束 -->
+                                          <div class="kd4" style="padding-left: 35px;"><!-- <a href="" >立即支付</a> -->
+                                                  <!-- <a href="">修改订单</a> --><a href="{:U('recover',array('infoid'=>$v['infoid']))}">恢复订单</a>
+                                          </div>
+                                           <!-- 盒子结束 -->
+                                        
+                                     </div>
+                                     </volist>
+                                     <else/>
+                                       <div class="notall">
+                                         没有相应的信息哦!
+                                       </div>
+                                     </if>
+                                     </div>
+                    <!-- 已取消订单 end-->
+                    </div>
+
+
+
+
+
+
+
+
+                   <div class="he">
+                       <p><input type="checkbox" /><span>全选</span><a href="">合并支付</a></p>
+                   </div>
+                   </form>
+               </div>
+             <!-- 我的订单end -->
+        
+
+
+
+
+            </div>
+        </div>
+      </div>
+</div>
+
+
+
+
+
+<!-- 列表页 主大区end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 底部区域 -->
+<include file="Public:flooter" />
+   
+        <!-- 底部区域结束 -->
+        </body>
+        </html>

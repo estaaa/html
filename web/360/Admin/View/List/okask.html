@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<title></title>
+	<link rel="stylesheet" href="{hd $smarty.const.__PUBLIC__}/Css/public.css" />
+	<script type="text/javascript" src="{hd $smarty.const.__PUBLIC__}/Js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="{hd $smarty.const.__PUBLIC__}/Js/public.js"></script>	
+</head>
+
+<body>
+	<table class="table">
+		<tr>
+			<td class="th" colspan="20">问题列表</td>
+		</tr>
+		<tr class="tableTop">
+			<td class="tdLittle1">ID</td>
+			<td>问题内容</td>
+			<td>提问时间</td>
+			<td>回答人数</td>
+			<td>悬赏金币</td>
+			<td>操作</td>
+		</tr>
+		{hd section loop=$okask name=num}
+		<tr>
+
+			<td>{hd $okask[num].asid}</td>
+			<td>{hd $okask[num].content}</td>
+			<td>{hd $okask[num].time|date_format:"%Y-%m-%d %S:%M:%S"}</td>
+			<td>{hd $okask[num].answer}</td>
+			<td>{hd $okask[num].reward}</td>
+			<td>
+				<a href="{hd $smarty.const.__APP__}?c=list&a=okask&asid={hd $okask[num].asid}" class="del">删除</a>
+			</td>
+		</tr>
+		{hd /section}
+		
+	</table>
+	<div class="page">
+		共0条 &nbsp
+		<a href="">1</a>
+	</div>
+
+</body>
+</html>

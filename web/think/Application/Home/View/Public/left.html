@@ -1,0 +1,83 @@
+        <!-- 导航区域 -->
+               <div id="list-nav">
+                       <div class="cen">
+                           <ul>
+                               <li class="list-cate all">
+                                    <s></s>
+                                    <a href="">全部商品</a>
+                                    <!-- 二级导航菜单*************************************************** -->
+                                    <div class="left">
+                                     <volist name="fatherData" key="k" id="v">
+                                        <!-- 导航区域 -->
+                                        <div class="nav">
+                                            <s></s>
+                                            <h1><a href="{:U('Home/List/index',array('cid'=>$v['cid']))}">{$v.ctitle}</a></h1>
+                                            <ul>
+                                               <volist name="v['son']" offset="0" length='3' id='n'>
+                                                <li><a href="{:U('Home/List/index',array('cid'=>$n['cid']))}">{$n.ctitle}</a></li>
+                                               </volist>
+                                            </ul>
+                                            <div class="list">
+                                                <div class="cate">
+                                                   <list from="$v['son']" name='$n' start='3'>
+                                                    <a href="{|U:'Index/List/index',array('cid'=>$n['cid'])}">{$n.ctitle}</a>
+                                                   </list>
+                                                </div>
+                                                <div class="pop">
+                                                    <p>推荐商品</p>
+                                                    <volist name="v['sustain']" key="kk" id="vv">
+                                                   <a href="{:U('Home/Content/index',array('pro_id'=>$vv['pro_id']))}" style="font-size:12px;height:16px;line-height: 16px;overflow:hidden;width:150px;padding:0px;text-align: left;margin:10px 0;">{$vv.p_title}</a>
+                                                    </volist>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 导航区域结束 -->
+                                        </volist>
+                                    </div>
+                        <!-- 二级导航菜单end*************************************************** -->
+                                </li>
+                               <li class="list-cate frist"><a href="{:U('Home/Index/index')}">首 页</a></li>
+                               <volist name="fatherData" key="k" id="v">
+                                <li  class="list-cate"><a href="{:U('Home/List/index',array('cid'=>$v['cid']))}">{$v.ctitle}</a></li>
+                                </volist>
+                           </ul>
+                       </div>
+                   </div>
+               <!-- 导航区域结束 -->
+<div id="list-main">
+    <div class="center">
+
+        
+
+
+        <!-- 我的商城 -->
+        <div id="user-table">
+            <div id="user-left">
+                <h1><a href="">我的商城</a></h1>
+                <div class="user-box">
+                  <div class="it"><s class="lc"></s>订单中心<s class="rc"></s></div>
+                  <p <if condition="$_GET['a'] eq 'goods'">style="border-left:2px solid red;"</if>>
+                    <a href="goods" <if condition="$_GET['a'] eq 'goods'">style="color:red;"</if>>我的订单</a>
+                  </p>
+                  <p <if condition="$_GET['a'] eq 'returns'">style="border-left:2px solid red;"</if>>
+                    <a href="returns"  <if condition="$_GET['a'] eq 'returns'">style="color:red;"</if>>我的退换货</a></p>
+                  <!-- <p><a href="">我的团购</a></p> -->
+                </div>
+                <div class="user-box">
+                  <div class="it" ><s class="lc"></s>个人中心<s class="rc"></s></div>
+               <!--    <p><a href="">我的预约</a></p>
+                  <p><a href="">到货通知</a></p> -->
+                  <p <if condition="$_GET['a'] eq 'balance'">style="border-left:2px solid red;"</if>>
+                  <a href="balance" <if condition="$_GET['a'] eq 'balance'">style="color:red;"</if>>账户余额</a></p>
+             <!--      <p><a href="">我的花瓣</a></p>
+                  <p><a href="">我的优惠劵</a></p> -->
+                  <p <if condition="$_GET['a'] eq 'address'">style="border-left:2px solid red;"</if>><a href="address" <if condition="$_GET['a'] eq 'address'">style="color:red;"</if>>收货地址管理</a></p>
+                </div>
+                <div class="user-box">
+                  <div class="it"><s class="lc"></s>社区中心<s class="rc"></s></div>
+                  <p <if condition="$_GET['a'] eq 'myraise'">style="border-left:2px solid red;"</if>>
+                    <a href="myraise" <if condition="$_GET['a'] eq 'myraise'">style="color:red;"</if>>商品评价</a>
+                 </p>
+                  <!-- <p><a href="">站内信</a></p> -->
+                </div>
+            </div>

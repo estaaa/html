@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link rel="stylesheet" href="__TEMPLATE__/css/style.css" />
+<include file="__TEMPLATE__/header" />
+
+	<!-- 主体区域 -->
+	<div id="main">
+		<!-- main最上面的说明文字 -->
+		<div class="top">以下是分类
+			<if value="$_GET['cid']!=0">
+				
+				<span>
+				<channel rows="1">{$field.cname}</channel>
+				</span> 下的文章
+				
+		</if>
+		</div>
+
+		
+		<!-- main最上面的说明文字结束 -->
+
+		<!-- 左侧区域 -->
+		<div class="left">
+			<!-- 列表页介绍 -->
+			<div class="list_description">列表描述</div>
+			<!-- 列表页介绍结束 -->
+			<ul class="arc_list">
+			<listcont pageRows="1">
+				<li>
+					<div class="pic">
+						<img src="{$field.thumb}" style="height:110px;width:150px;" />
+					</div>
+					<h3><a href="{$field.url}">{$field.title}</a></h3>
+					<span class="date">{$field.sendtime|date:'m:d',@@}</span>
+					<a href="{$field.url}" class="comment">{$field.total}条评论</a>
+					<span class="browse_number">{$field.click}次浏览</span>
+					<p class="description">{$field.digest}</p>
+				</li>
+			</listcont>
+			</ul>
+
+			<!-- 分页 -->
+			<ul class="pagelist">
+				{$page}
+			</ul>
+			<!-- 分页结束 -->
+		</div>
+		<!-- 左侧区域结束 -->
+		<include file="__TEMPLATE__/right" />
+
+	</div>
+	<!-- 主体区域结束 -->
+		<include file="__TEMPLATE__/flooter" />
+	
+</body>
+</html>

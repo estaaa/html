@@ -1,0 +1,145 @@
+<include file="__VIEW__/Common/header" />
+               
+<script src="__CONTROLLER_VIEW__/js/index.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="__CONTROLLER_VIEW__/css/index.css">
+ 
+    <script type="text/javascript" charset="utf-8">
+    $(function(){
+            var keyword = "<?php echo $_GET['keyword'] ?>";
+            
+
+            $('.cost').click(function(){
+                var num=$(this).attr('num');
+                $(this).css({color:'red'});
+                location.href="{|U:'Index/Search/index/keyword/'}"+keyword+'/num/'+num;
+            })
+               
+           
+        
+    })
+        
+        
+    
+    </script>
+
+
+
+
+
+
+    <!-- 列表页 主大区 -->
+    <!-- 导航区域 -->
+           <div id="list-nav">
+                   <div class="cen">
+                       <ul>
+                           <li class="list-cate all">
+                                <s></s>
+                                <a href="">全部商品</a>
+                                <!-- 二级导航菜单*************************************************** -->
+                                <div class="left">
+                                 <foreach from="$fatherData" key="$k" value="$v">
+                                    <!-- 导航区域 -->
+                                    <div class="nav">
+                                        <s></s>
+                                        <h1><a href="{|U:'Index/List/index',array('cid'=>$v['cid'])}">{$v.ctitle}</a></h1>
+                                        <ul>
+                                           <list from="$v['son']" name='$n' row='3' start='0'>
+                                            <li><a href="{|U:'Index/List/index',array('cid'=>$n['cid'])}">{$n.ctitle}</a></li>
+                                           </list>
+                                        </ul>
+                                        <div class="list">
+                                            <div class="cate">
+                                               <list from="$v['son']" name='$n' start='3'>
+                                                <a href="{|U:'Index/List/index',array('cid'=>$n['cid'])}">{$n.ctitle}</a>
+                                               </list>
+                                            </div>
+                                            <div class="pop">
+                                                <p>推荐商品</p>
+                                                <foreach from="$v['sustain']" key="$kk" value="$vv">
+                                               <a href="{|U:'Index/Content/index',array('pro_id'=>$vv['pro_id'])}" style="font-size:12px;height:16px;line-height: 16px;overflow:hidden;width:150px;padding:0px;text-align: left;margin:10px 0;">{$vv.p_title}</a>
+                                                </foreach>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 导航区域结束 -->
+                                    </foreach>
+                                </div>
+                    <!-- 二级导航菜单end*************************************************** -->
+                            </li>
+                           <li class="list-cate frist"><a href="{|U:'Index/Index/index'}">首 页</a></li>
+                           <foreach from="$fatherData" key="$k" value="$v">
+                            <li  class="list-cate"><a href="{|U:'Index/List/index',array('cid'=>$v['cid'])}">{$v.ctitle}</a></li>
+                            </foreach>
+                       </ul>
+                   </div>
+               </div>
+           <!-- 导航区域结束 -->
+       <!-- 导航区域结束 -->
+
+<div id="list-main">
+    <div class="center">
+
+        <!-- 分类区域 -->
+        <div class="top-se">
+            <p><s></s>搜索 <b>{$keyAndnum.key}</b>共找到商品 <em> {$keyAndnum.num} </em> 件</p>
+        </div>
+        <div class="cate seac-cate">
+            <p class="last">
+                <span>商品排序：</span>
+                <a href="{|U:'Index/Search/index',array('keyword'=>$keyAndnum['key'])}"  <if value="!$_GET['num']">style="color:red"</if>>默认</a>
+
+                <a href="javascript:;" class="cost" <if value="$_GET['num']==1">num='2' <else/>num='1' </if>  <if value="$_GET['num']==1||$_GET['num']==2">style="color:red"</if> >价格<s class="price"></s></a>
+
+
+                <a href="javascript:;" class="cost"   <if value="$_GET['num']==3">num='4'<else/>num='3'</if>  <if value="$_GET['num']==3||$_GET['num']==4">style="color:red"</if> >评价数<s class="appraise"></s></a>
+
+
+                <a href="javascript:;" class="cost"  <if value="$_GET['num']==5">num='6'<else/>num='5'</if>   <if value="$_GET['num']==5||$_GET['num']==6">style="color:red"</if> >上架时间<s class="time"></s></a>
+            </p>
+        </div>
+        <!-- 分类区域结束 -->
+
+
+
+        <!-- 产品区域 -->
+        <div class="product">
+
+
+        <foreach from="$value" key="$k" value="$v">
+        <!-- 盒子 -->
+            <div id="search-box">
+            <s></s>
+                    <div class="border">
+                        <p><a href="{|U:'Index/Content/index',array('pro_id'=>$v['pro_id'])}"><img src="__ROOT__/{$v.list_img}" alt="" /></a></p>
+                        <span>¥{$v.p_cost}</span>
+                        <h3><a href="{|U:'Index/Content/index',array('pro_id'=>$v['pro_id'])}">{$v.activity}</a></h3>
+                    </div>
+            </div>
+            <!-- 盒子结束 -->
+        </foreach>
+
+
+
+
+        </div>
+        <!-- 产品区域end -->
+
+    </div>
+</div>
+
+
+
+
+
+<!-- 列表页 主大区end -->
+
+<include file="__VIEW__/Common/flooter" />
+
+
+
+
+
+
+
+        </body>
+        </html>

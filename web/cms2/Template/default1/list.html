@@ -1,0 +1,129 @@
+<include file="__TEMPLATE__/header" />
+
+
+
+
+
+<!-- body 主大区**************************************** -->
+<div style="min-height: 3433px;" role="main" id="main">
+
+
+
+
+
+
+
+
+
+<div id="content-box">
+  <div id="content">
+    <div class="place"> <a rel="home" title="返回 绿森移动健康科技 首页" href="http://magixtech.9o.re/">首页</a> › 
+
+        <if value="$_GET['cid']!=0">
+            <channel rows="1">{$field.cname}</channel>
+         </if>
+
+</div>
+        <div class="archive-info">
+
+
+        <if value="$_GET['cid']!=0">
+            <channel rows="1"><h1>{$field.cname}</h1></channel>
+         </if>
+
+        </div>
+
+
+
+
+        <div id="post-list">
+
+<!-- 循环开始 **************************************************-->
+<listcont rows="10" pageRows="12" pageNum="4">
+<div id="post-3305" class="post-3305 post type-post status-publish format-standard has-post-thumbnail hentry category-news tag-70 tag-69 tag-65">
+    <div class="post-thumb">
+      <a href="">
+        <img class="lazyload" original="image1.png" src="{$field.thumb}" alt="" style="height:161px;width:260px" >
+      </a>
+    </div>  
+    <h2 class="post-title">
+      <a href="{$field.url}">
+        {$field.title}
+      </a>
+    </h2>
+    <div class="post-info">
+        <span class="post-meta">
+          <span class="icon author">
+            
+          </span>
+          <a href="{$field.url}">否子戈</a>
+        </span>    
+        <span class="post-meta">
+          <span class="icon cate"></span>
+          <a href="{$field.url}" rel="category tag">资讯</a>
+        </span>
+        <span class="post-meta">
+          <span class="icon date"></span>
+          {$field.sendtime|date:'Y:m:d H-m-s',@@}
+        </span>
+        <a href="{$field.url}"><span class="post-comment post-meta"><span class="icon comment"></span> {$field.total}</span>
+        </a>    
+        <span class="post-meta"><span class="icon view"></span>{$field.click}</span>
+    </div>
+    <div class="post-excerpt">
+        <p>{$field.digest}... <a class="more-link" href="{$field.url}" rel="nofollow">继续阅读 »</a>
+        </p>
+    </div>
+    <div class="post-opt">
+        <span class="icon tag"></span>
+        <a href="" rel="tag">健康服务</a> 
+        <a href="" rel="tag">在线医疗</a> 
+        <a href="" rel="tag">谷歌</a>    
+        <a href="javascript:void(0)" class="add-like" data-post="3305">
+          <span class="icon like"></span>喜欢+1 (7)
+        </a>
+        <a href="javascript:void(0)" class="add-collect" data-post="3305"><span class="icon collect"></span>收藏
+        </a>  
+    </div>
+    <div class="clear"></div>
+</div>
+</listcont>
+<!-- 循环开始 end**************************************************-->
+
+
+
+
+
+    </div>
+      </div>
+  </div>
+
+<!-- 左侧 -->
+
+<include file="__TEMPLATE__/right" />
+
+
+
+
+
+
+
+
+</div>
+<!-- 主大区 结束********************************************************************
+**********************************************************************
+******************************************************************
+**************************************************************
+*** -->
+
+
+
+
+<include file="__TEMPLATE__/flooter" />
+
+
+
+
+
+
+</body></html>

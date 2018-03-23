@@ -1,0 +1,107 @@
+<!-- 右侧 -->
+      
+      <div id='right'>
+      {hd if $smarty.session.name}
+      <div class='userinfo'>
+         <dl>
+            <dt>
+               <a href="{hd $smarty.const.__APP__}?c=member"><img src="{hd if $path}{hd $path}{hd else}{hd $smarty.const.__PUBLIC__}/Images/noface.gif{hd /if}" width='48' height='48' alt="占位符"/></a>
+            </dt>
+            <dd class='username'>
+               <a href="">
+                  <b></b>
+               </a>
+               <a href="">
+                  <i class='level lv1' title='Level 1'></i>
+               </a>
+            </dd>
+            <dd>金币：<a href="" style="color: #888888;">{hd $user.point}<b class='point'></b></a></dd>
+            <dd>经验值：{hd $user.exp}</dd>
+         </dl>
+         <table>
+            <tr>
+               <td>回答数</td>
+               <td>采纳率</td>
+               <td class='last'>提问数</td>
+            </tr>
+            <tr>
+               <td><a href="{hd $smarty.const.__APP__}?c=member&a=ask">{hd $user.answer}</a></td>
+               <td><a href="{hd $smarty.const.__APP__}?c=member">{hd $userr.cai}</a></td>
+               <td class='last'><a href="{hd $smarty.const.__APP__}?c=member&a=answer">{hd $user.ask}</a></td>
+            </tr>
+         </table>
+         <ul>
+            <li><a href="{hd $smarty.const.__APP__}?c=member&a=ask">我提问的</a></li>
+            <li><a href="{hd $smarty.const.__APP__}?c=member&a=answer">我回答的</a></li>
+         </ul>
+      </div>
+    
+{hd else}
+      <div id='right'>
+     <div class='r-login'>
+         <span class='login'><i></i>&nbsp;登录</span>
+         <span class='register'><i></i>&nbsp;注册</span>
+      </div>
+      </div>
+      {hd /if}
+      <!-- <div class='r-login'>
+         <span class='login'><i></i>&nbsp;登录</span>
+         <span class='register'><i></i>&nbsp;注册</span>
+      </div> -->
+<div class='clear'></div>
+   <div class='star'>
+      <p class='title'>后盾问答之星</p>
+      <span class='star-name'>本日回答问题最多的人</span>
+         <div class='star-info'>
+            <div>
+               <a href="" class='star-face'>
+                  <img src="{hd if $moreDay.face!=''}{hd $moreDay.face}{hd else}{hd $smarty.const.__PUBLIC__}/Images/noface.gif{hd /if}" width='48px' height='48px' alt="头像站位"/>
+               </a>
+               <ul>
+                  <li><a href="">{hd $moreDay.username}</a></li>
+                  <i class='level lv1' title='Level 1'></i>
+               </ul>
+            </div>
+            <ul class='star-count'>
+               <li>回答数：<span>{hd $moreDay.answer}</span></li>
+               <li>采纳率：<span>{hd $moreDay.cai}</span></li>
+            </ul>
+         </div>
+      <span class='star-name'>历史回答问题最多的人</span>
+
+       <div class='star-info'>
+            <div>
+               <a href="" class='star-face'>
+                  <img src="{hd if $oldDay.face!=''}{hd $oldDay.face}{hd else}{hd $smarty.const.__PUBLIC__}/Images/noface.gif{hd /if}" width='48px' height='48px' alt="头像站位"/>
+               </a>
+               <ul>
+                  <li><a href="">{hd $oldDay.username}</a></li>
+                  <i class='level lv1' title='Level 1'></i>
+               </ul>
+            </div>
+            <ul class='star-count'>
+               <li>回答数：<span>{hd $oldDay.answer}</span></li>
+               <li>采纳率：<span>{hd $oldDay.cai}</span></li>
+            </ul>
+         </div>
+   </div>
+   <div class='star-list'>
+      <p class='title'>后盾问答助人光荣榜</p>
+      <div>
+         <ul class='ul-title'>
+            <li>用户名</li>
+            <li style='text-align:right;'>帮助过的人数</li>
+         </ul>
+         <ul class='ul-list'>
+         {hd foreach from=$maxask item=v}
+            <li>
+               <a href=""><i class='rank r1'></i>{hd $v.username}</a>
+               <span>{hd $v.accept}</span>
+            </li>
+           {hd /foreach}
+         </ul>
+      </div>
+   </div>
+</div>
+
+<!-- ---右侧结束---- -->

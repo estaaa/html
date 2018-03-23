@@ -1,0 +1,62 @@
+[ 2015-08-15T18:23:53+08:00 ]EXCEPTION: Method Api\Controller\ContentController::show() does not exist
+[ 2015-08-15T18:23:55+08:00 ]EXCEPTION: Method Api\Controller\ContentController::show() does not exist
+[ 2015-08-15T18:27:50+08:00 ]EXCEPTION: Method Api\Controller\ContentController::show() does not exist
+[ 2015-08-15T18:27:53+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (6).
+[ 2015-08-15T18:27:53+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (7).
+[ 2015-08-15T18:27:54+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (6).
+[ 2015-08-15T18:27:54+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (7).
+[ 2015-08-15T18:28:16+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (6).
+[ 2015-08-15T18:28:16+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (7).
+[ 2015-08-15T18:28:17+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (6).
+[ 2015-08-15T18:28:17+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (7).
+[ 2015-08-15T18:28:17+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (6).
+[ 2015-08-15T18:28:17+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (7).
+[ 2015-08-15T18:28:31+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (6).
+[ 2015-08-15T18:28:31+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (7).
+[ 2015-08-15T18:28:31+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (6).
+[ 2015-08-15T18:28:31+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (7).
+[ 2015-08-15T18:28:32+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (6).
+[ 2015-08-15T18:28:32+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (7).
+[ 2015-08-15T18:29:10+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (6).
+[ 2015-08-15T18:29:10+08:00 ]NOTICE: Undefined index: idD:\wamp\www\cms\app\Api\Controller\ContentController.php (7).
+[ 2015-08-15T18:34:46+08:00 ]EXCEPTION: INSERT INTO article (`cid`,`uid`)VALUES(?,?) ;BindParams:array (
+  0 => '2',
+  1 => '4',
+)42S22;1054;Unknown column 'cid' in 'field list'
+[ 2015-08-15T18:34:57+08:00 ]EXCEPTION: INSERT INTO article (`cid`,`uid`)VALUES(?,?) ;BindParams:array (
+  0 => '1',
+  1 => '4',
+)42S22;1054;Unknown column 'cid' in 'field list'
+[ 2015-08-15T18:35:34+08:00 ]EXCEPTION: INSERT INTO collect (`cid`,`uid`)VALUES(?,?) ;BindParams:array (
+  0 => '2',
+  1 => '4',
+)42S22;1054;Unknown column 'uid' in 'field list'
+[ 2015-08-15T20:55:31+08:00 ]EXCEPTION: SELECT  *  FROM collect WHERE  user_id=?  ;BindParams:array (
+  0 => '3',
+)42S22;1054;Unknown column 'user_id' in 'where clause'
+[ 2015-08-15T20:55:32+08:00 ]EXCEPTION: SELECT  *  FROM collect WHERE  user_id=?  ;BindParams:array (
+  0 => '3',
+)42S22;1054;Unknown column 'user_id' in 'where clause'
+[ 2015-08-15T20:55:57+08:00 ]EXCEPTION: SELECT  *  FROM collect WHERE  user_id=?  LIMIT 1 ;BindParams:array (
+  0 => '3',
+)42S22;1054;Unknown column 'user_id' in 'where clause'
+[ 2015-08-15T20:55:58+08:00 ]EXCEPTION: SELECT  *  FROM collect WHERE  user_id=?  LIMIT 1 ;BindParams:array (
+  0 => '3',
+)42S22;1054;Unknown column 'user_id' in 'where clause'
+[ 2015-08-15T20:56:19+08:00 ]EXCEPTION: SELECT  *  FROM collect WHERE  user_id=?  LIMIT 1 ;BindParams:array (
+  0 => '3',
+)42S22;1054;Unknown column 'user_id' in 'where clause'
+[ 2015-08-15T20:56:20+08:00 ]EXCEPTION: SELECT  *  FROM collect WHERE  user_id=?  LIMIT 1 ;BindParams:array (
+  0 => '3',
+)42S22;1054;Unknown column 'user_id' in 'where clause'
+[ 2015-08-15T20:56:20+08:00 ]EXCEPTION: SELECT  *  FROM collect WHERE  user_id=?  LIMIT 1 ;BindParams:array (
+  0 => '3',
+)42S22;1054;Unknown column 'user_id' in 'where clause'
+[ 2015-08-15T21:36:49+08:00 ]EXCEPTION: SELECT  *  FROM collect WHERE  user_uid=?  aid=?  LIMIT 1 ;BindParams:array (
+  0 => '4',
+  1 => '37',
+)42000;1064;You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'aid='37'  LIMIT 1' at line 1
+[ 2015-08-15T21:36:50+08:00 ]EXCEPTION: SELECT  *  FROM collect WHERE  user_uid=?  aid=?  LIMIT 1 ;BindParams:array (
+  0 => '4',
+  1 => '37',
+)42000;1064;You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'aid='37'  LIMIT 1' at line 1

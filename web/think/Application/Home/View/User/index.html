@@ -1,0 +1,144 @@
+<include file="Public:header" />
+
+<script src="__PUBLIC__/Js/user.js" type="text/javascript" charset="utf-8"></script>
+<script src="__PUBLIC__/Js/privata.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Css/user.css">
+<include file="Public:left" />
+<div id="user-right">
+              
+            
+              <!-- 用户欢迎界面 -->
+                <div id="user-welcome">
+                    <div class="header">
+                        <div class="user-hd">
+                          <s></s>
+                          <img src="__ROOT__/{$userData.thumb}" alt="">
+                        </div>
+                        <div class="user-msg">
+                          <h2>{$userData.nickname}，欢迎您！</h2>
+                          <p>
+                          <span>我的经验值： <em>0</em></span>
+                          <present name="userData['iphoto']"><span>已验证</span>
+                          <else/>
+                          <span class="ip"><s></s>未验证手机</span>
+                          </present>
+                           <present name="userData['emli']"><span>已验证</span>
+                           <else/>
+                          <span class="ip"><s></s>未验证邮箱</span>
+                          </present>
+                          <!-- <span>优惠券： <em>0</em> 张</span> -->
+                          <!-- <span>站内信： <em>0</em> 条</span></p> -->
+                          <p class="ico">
+                            <span>我的特权：</span>
+                            <if condition="$userData['suffer'] lt 100">
+                            <a href=""><img src="__STATIC__/Images/111.png" alt="" /></a>
+                           <elseif condition="$userData['suffer'] lt 200" />
+                           <a href=""><img src="__STATIC__/Images/111.png" alt="" /></a>
+                            <a href=""><img src="__STATIC__/Images/222.png" alt=""></a>
+                            <else/>
+                                <span>您还没有特权!</span>
+                            </if>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="no-payment">
+                      <p><span>待支付订单（<em>1</em>）</span><!-- <a href="">更多 ></a> --></p>
+                      <if condition="$notPayment">
+                    <volist name="notPayment" key="k" id="v">
+                      <div class="payment-box">
+                        <div class="k"><a href=""><img src="__ROOT__/{$v.img.0}" alt="" style="height:100px;width:100px;"/></a></div>
+                        <div class="k kd"><a href="">订单号：{$v.info_code}</a></div>
+                        <div class="k kd2"><a href="">¥{$v.pic_all}</a></div>
+                        <div class="k kd3"><a href="">订单详情</a></div>
+                        <div class="k kd4"><a href="">立即支付</a></div>
+                      </div></volist>
+                       <else/>
+                      <div class="no-box">
+                        <span>您暂时没有待支付的订单。</span><a href="">挑选喜欢的商品去>></a>
+                      </div>
+                      </if>
+                    </div>
+
+                    <div class="no-payment">
+                      <p><span>待评价订单（<em>1</em>）</span><!-- <a href="">更多 ></a> --></p>
+                      <if condition="$Payment">
+                     <volist name="Payment" key="k" id="v">
+                       <div class="payment-box">
+                     <div class="k"><a href=""><img src="__ROOT__/{$v.img.0}" alt="" style="height:100px;width:100px;"/></a></div>
+                     <div class="k kd"><a href="">订单号：{$v.info_code}</a></div>
+                     <div class="k kd2"><a href="">¥{$v.pic_all}</a></div>
+                     <div class="k kd3"><a href="">商品详情</a></div>
+                      <div class="k kd4"><a href="">立即评价</a></div>
+                      </div>
+                      </volist>
+                      <else/>
+                      <div class="no-box">
+                        <span>您暂时没有待评价订单。</span><a href="">挑选喜欢的商品去>></a>
+                      </div>
+                      </if>
+                    </div>
+                </div>
+              <!-- 用户欢迎界面 -->
+        
+
+
+
+
+            </div>
+        </div>
+      </div>
+</div>
+
+
+
+
+
+<!-- 列表页 主大区end -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 底部区域 -->
+<include file="Public:flooter" />
+
+        <!-- 底部区域结束 -->
+        </body>
+        </html>

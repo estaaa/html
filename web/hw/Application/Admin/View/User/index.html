@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户管理</title>
+<link href="__STATIC__/Admin/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__STATIC__/Js/jquery-1.7.2.min.js"></script>
+<script language="javascript">
+$(function(){	
+	//导航切换
+	$(".imglist li").click(function(){
+		$(".imglist li.selected").removeClass("selected")
+		$(this).addClass("selected");
+	})	
+})	
+
+
+function del(num){
+$(".tip").fadeIn(200);
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+    location.href="{|U:'del'}/uid/"+num;
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+}
+</script>
+<style type="text/css" media="screen">
+    .pagin{
+        width:1200px;
+    }
+    .message{
+        width:300px;
+        float:left;
+    }
+    .paginList{
+        width:150px;
+        float:right;
+        text-align: center;
+        border:1px solid #F5F5F5;
+        padding:4px 2px;
+    }
+    .pagin .paginList strong,.pagin .paginList span,.pagin .paginList a{
+        display:block;
+        float:left;
+        padding:0 7px;
+         border-left:1px solid #F5F5F5;
+    }
+</style>
+</head>
+
+
+<body>
+
+
+    
+    
+    <div class="rightinfo">
+    
+    <div class="tools">
+    
+    	<ul class="toolbar">
+        <form action="" method="get">
+            <li style="padding:0;background: none;width:240px;"><input type="text" name="con" value="" style="width:240px;height:30px;"></li>
+        
+        <li class="click" style="width:70px;text-align: center;padding:0;background: blue;color: #fff;"><input type="submit" name="" value="搜索" style="width:70px;text-align: center;padding:0;background: blue;color: #fff; cursor:pointer;"></li>
+       
+        </form>
+        </ul>
+        
+        
+        
+    
+    </div>
+    
+    
+    
+    <ul class="classlist">
+    
+
+    <foreach from="$allUser" key="$k" value="$v">
+    <li>
+    <span><img <if value="$v['thumb']"> src="__ROOT__/{$v.thumb}" <else/> src="__STATIC__/images/headPic.jpg.png" </if>  style="height:126px;width:126px;"/></span>
+    <div class="lright" style="width:170px;">
+    <h2>{$v.username}</h2>
+    <p>购买数量：共{$v.buynum}件<br />剩余金额：{$v.money}元<br />是否被锁定：<if value="$v['is_lock']==1">是<else/>否</if></p>
+    <p  style="width:180px;"> 
+        <a class="enter" style="width:40px;float:left;margin-right:3px;" href="{|U:'edit',array('uid'=>$v['uid'])}">修改</a>
+        <a class="enter click" style="width:40px;float:left;margin-right:3px;" href="javascript:del({$v.uid})">删除</a>
+        <a class="enter" style="width:40px;float:left;margin-right:3px;" href="{|U:'lock',array('uid'=>$v['uid'])}"><if value="$v['is_lock']==1">解锁<else/>锁定</if></a>
+        <a class="enter" style="width:40px;float:left;margin-right:3px;" href="{|U:'msg',array('uid'=>$v['uid'])}">信息</a>
+    </p>
+   
+    </div>
+    </li>
+    </foreach>
+   
+
+
+
+    
+    </ul>
+    
+    <div class="clear"></div>
+   
+    <div class="pagin">
+
+    	<div class="message">共<i class="blue">{$allLen}</i>条记录，</div>
+        <ul class="paginList">
+
+       {$page}
+     
+   
+        
+        </ul>
+    </div>
+    
+    
+    <div class="tip">
+    	<div class="tiptop"><span>提示信息</span><a></a></div>
+        
+      <div class="tipinfo">
+        <span><img src="__STATIC__/Admin/images/ticon.png" /></span>
+        <div class="tipright">
+        <p>是否确认要删除此用户 ？</p>
+        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+        </div>
+        </div>
+        
+        <div class="tipbtn">
+        <input name="" type="button"  class="sure" value="确定" />&nbsp;
+        <input name="" type="button"  class="cancel" value="取消" />
+        </div>
+    
+    </div>
+    
+    
+    
+    
+    </div>
+    
+
+</body>
+
+</html>

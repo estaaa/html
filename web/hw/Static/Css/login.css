@@ -1,0 +1,486 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+img {
+  border: none;
+}
+body {
+  
+}
+#login {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background: #d4d4d4 url(../images/bg9.jpg) no-repeat scroll center -44px;
+}
+#login .cen {
+  width: 1002px;
+  margin: 0 auto;
+  padding-top: 30px;
+  height: auto;
+  overflow: hidden;
+}
+#login .cen .logo {
+  width: 1002px;
+  height: 37px;
+  /* float:left; */
+}
+#login .cen .logo span {
+  line-height: 48px;
+  display: block;
+  float: left;
+}
+#login .cen .logo .f {
+  padding: 0 7px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #868686;
+}
+#login .cen .logo .word {
+  color: #777777;
+  font-family: "微软雅黑";
+  font-size: 22px;
+  padding-left: 10px;
+}
+#login .cen .b {
+  width: 1002px;
+  float: left;
+}
+#login .cen .b .left {
+  float: left;
+  padding-left: 59px;
+  width: 570px;
+  height: 529px;
+}
+#login .cen .b .right {
+  float: left;
+  width: 323px;
+  height: 529px;
+  padding-left: 50px;
+  padding-top: 60px;
+  
+
+}
+
+#login .cen .b .right div.tit{
+  position:relative;
+  color: #ea5e00;
+  font-family: "微软雅黑";
+  display: block;
+  font-size: 23px;
+  height:25px;
+  width:200px;
+  text-decoration: none;
+  line-height: 23px;
+  font-weight: bold;
+  float: left;
+  padding-bottom: 20px;
+}
+#error_tips{
+  position:absolute;
+  bottom:0px;
+  left:0px;
+  height:30px;
+  display:block;
+  padding:0 5px;
+  float:left;
+  width:130px;
+  font-size: 12px;
+  background:#F9F5C7;
+  color:#434343;
+  padding-left: 30px;
+  line-height: 30px;
+  display:none;
+}
+#error_tips s{
+  display:block;
+  height:18px;
+  width:18px;
+  background:url(../images/icon_3.png) 0 -162px;
+  position:absolute;
+  top:6px;
+  left:3px;
+}
+#login .cen .b .right input {
+  width: 239px;
+  padding: 8px;
+  color: #9999;
+  border-radius: 5px;
+
+  margin-bottom: 25px;
+  border: 1px solid #bcbcbc;
+  line-height: 20px;
+  float: left;
+}
+#login .cen .b .right input.code {
+  width: 96px;
+  margin-top: 20px;
+}
+#login .cen .b .right a {
+  display: block;
+  width: 140px;
+  margin-left: 10px;
+  margin-top: 10px;
+  float: left;
+}
+#login .cen .b .right a img{
+  margin-top: 10px;
+   width:100px;height:30px;
+}
+#login .cen .b .right .b-box {
+  width: 239px;
+  padding-top: 30px;
+  height: 20px;
+  float: left;
+  line-height: 20px;
+}
+#login .cen .b .right .b-box input {
+  padding: 0;
+  margin: 0;
+  width: 10px;
+  height: 10px;
+}
+#login .cen .b .right .b-box span {
+  line-height: 13px;
+  padding-left: 5px;
+  display: block;
+  float: left;
+  font-size: 12px;
+  color: #5c5c5c;
+}
+#login .cen .b .right .b-box span.forget {
+  color: #929292;
+  float: right;
+  cursor: pointer;
+}
+#login .cen .b .right .b-box span.forget:hover {
+  text-decoration: underline;
+}
+#login .cen .b .right input.btn {
+  width: 100px;
+  padding: 7px 25px;
+  margin-top: 15px;
+  float: left;
+  background: #A00001;
+  color: #ffffff;
+  font-family: "微软雅黑";
+  display: block;
+  font-size: 18px;
+  text-decoration: none;
+  line-height: 27px;
+}
+
+#login .cen .b .right input.btn:hover {
+  background: #C70000;
+}
+#login .cen .b .right .dec {
+  width: 239px;
+  float: left;
+  font-size: 12px;
+  color: #929292;
+}
+#login .cen .b .right .dec .none {
+  width: 239px;
+  height: 20px;
+  padding: 20px 0px;
+}
+#login .cen .b .right .dec .none span {
+  line-height: 20px;
+  float: left;
+  display: block;
+  padding-right: 10px;
+  color: #666;
+}
+#login .cen .b .right .dec .none a {
+  color: #ea5e00;
+  font-family: "微软雅黑";
+  display: block;
+  font-size: 14px;
+  text-decoration: none;
+  line-height: 20px;
+  float: left;
+  padding: 0px;
+  width: 60px;
+  font-weight: bold;
+  margin: 0px;
+}
+#login .bor {
+  border-bottom: 1px solid #B9B9B9;
+  height: 1px;
+  width: 1003px;
+  float: left;
+}
+#login .foot {
+  width: 1200px;
+  margin: 0 auto;
+  height: auto;
+  overflow: hidden;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+#login .foot p {
+  color: #999999;
+  font-family: "微软雅黑";
+  display: block;
+  font-size: 12px;
+  text-decoration: none;
+  line-height: 20px;
+  text-align: center;
+}
+#login .foot p.frist {
+  text-decoration: underline;
+}
+/* ***************************************************************88注册 */
+#logona {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background: #d4d4d4 url(../images/bg10.jpg) no-repeat scroll center -44px;
+}
+#logona .cen {
+  width: 1002px;
+  margin: 0 auto;
+  padding-top: 30px;
+  height: auto;
+  overflow: hidden;
+}
+#logona .cen .logo {
+  width: 1002px;
+  height: 37px;
+  /* float:left; */
+}
+#logona .cen .logo span {
+  line-height: 48px;
+  display: block;
+  float: left;
+}
+
+#logon {
+  width: 791px;
+  margin: 0 auto;
+  border: 1px solid #F8F8F8;
+  margin: 40px 100px;
+  height: 564px;
+  background: #fff;
+  position: relative;
+  box-shadow: 2px 2px 10px #909090;
+ 
+}
+#logon .title {
+  width: 791px;
+  padding-left: 235px;
+  padding-top: 40px;
+}
+#logon .title div.t {
+  height: 40px;
+  color: #b90006;
+  font-family: "微软雅黑";
+  display: block;
+  font-size: 30px;
+  text-decoration: none;
+  line-height: 40px;
+  position:relative;
+  padding-bottom: 20px;
+}
+#logon .data {
+
+  padding-left: 120px;
+  height: auto;
+  overflow: hidden;
+
+}
+#logon .data s {
+  display: block;
+  position: absolute;
+  bottom: -40px;
+  left: -60px;
+  width: 226px;
+  height: 135px;
+  background: url(../images/bg14.png);
+}
+#error{
+  position:absolute;
+  bottom:0px;
+  left:0px;
+  height:30px;
+  display:block;
+  padding:0 5px;
+  float:left;
+  width:150px;
+  font-size: 12px;
+  background:#F9F5C7;
+  color:#434343;
+  padding-left: 30px;
+  line-height: 30px;
+  display:none;
+}
+#error em{
+  display:block;
+  height:18px;
+  width:18px;
+  background:url(../images/icon_3.png) 0 -162px;
+  position:absolute;
+  top:6px;
+  left:3px;
+}
+#logon .data i {
+  display: block;
+  position: absolute;
+  bottom: -10px;
+  left: 0px;
+  width: 792px;
+  height: 19px;
+  background: url(../images/bg26.png);
+}
+#logon .data p {
+  width: 400px;
+  float: left;
+  padding-bottom: 20px;
+}
+
+#logon .data p span {
+  width: 100px;
+  text-align: right;
+  height: 32px;
+  float: left;
+  color: #838282;
+  font-family: "微软雅黑";
+  display: block;
+  font-size: 14px;
+  text-decoration: none;
+  line-height: 32px;
+}
+#logon .data p .cl {
+  width: 80px;
+  height: 14px;
+  color: #aaaaaa;
+  font-family: "微软雅黑";
+  display: block;
+  font-size: 12px;
+  text-decoration: none;
+  line-height: 12px;
+  margin-top: 4px;
+  background: #EEEEEE;
+  margin-right: 2px;
+  text-align: center;
+}
+#logon .data p .f1 {
+  margin-left: 115px;
+}
+#logon .data p input {
+  margin-left: 15px;
+  display: block;
+  float: left;
+  width: 230px;
+  height: 20px;
+  font-size: 12px;
+  padding: 6px;
+  /*color: #ccc;*/
+  line-height: 20px;
+  border: none;
+  border: 1px solid #CDCDCD;
+  border-radius: 5px;
+}
+#logon .data p input.sub {
+  margin-left: 120px;
+  margin-top: 10px;
+  width: 140px;
+  height: 35px;
+  color: #ffffff;
+  font-family: "微软雅黑";
+  display: block;
+  font-size: 18px;
+  text-decoration: none;
+  line-height: 23px;
+  background: #ff8924;
+  border: none;
+}
+#logon .data p .code {
+  width: 90px;
+}
+#logon .data p img{
+  cursor:pointer;
+  margin-top: 7px;
+  margin-left: 10px;
+}
+#logon .data p.la {
+  padding-top: 20px;
+}
+#logon .data p.la input {
+  margin-top: 10px;
+}
+#logon .data p.la span {
+  margin-top: 10px;
+}
+#logon .data p.tk {
+  padding-top: 20px;
+}
+#logon .data p.tk input {
+  float: left;
+  width: 12px;
+  height: 12px;
+  margin-left: 120px;
+  margin-right: 5px;
+}
+#logon .data p.tk a {
+  color: #5c5c5c;
+  font-family: "微软雅黑";
+  display: block;
+  font-size: 12px;
+  text-decoration: none;
+  line-height: 12px;
+  float: left;
+  margin-right: 5px;
+}
+#logon .data p.tk a.ty {
+  color: #004e97;
+  text-decoration: underline;
+}
+.go-login {
+  width: 793px;
+  margin: 0 auto;
+  height: 60px;
+}
+.go-login p {
+  width: 793px;
+}
+.go-login p span {
+  display: block;
+  font-size: 12px;
+  padding-right: 20px;
+  float: right;
+  color: #5c5c5c;
+  line-height: 30px;
+}
+.go-login p span.lgi {
+  height: 30px;
+  width: 88px;
+  text-align: center;
+  background: #C5C5C5;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0px;
+  cursor: pointer;
+}
+#logona .foot {
+  width: 1200px;
+  margin: 0 auto;
+  height: auto;
+  overflow: hidden;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+#logona .foot p {
+  color: #999999;
+  font-family: "微软雅黑";
+  display: block;
+  font-size: 12px;
+  text-decoration: none;
+  line-height: 20px;
+  text-align: center;
+}
+#logona .foot p.frist {
+  text-decoration: underline;
+}

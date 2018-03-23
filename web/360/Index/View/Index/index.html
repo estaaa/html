@@ -1,0 +1,91 @@
+{hd include file='../Common/header.html'}
+ <script type="text/javascript" src='{hd $smarty.const.__PUBLIC__}/Js/index.js'></script>
+ <script type="text/javascript" src='{hd $smarty.const.__PUBLIC__}/Js/skip.js'></script>
+ <link rel="stylesheet" href="{hd $smarty.const.__PUBLIC__}/Css/index.css" />
+<!-- top -->
+	<div class='main'>
+		<div id='left'>
+			<p class='left-title'>所有问题分类</p>
+			<ul class='left-list'>
+			{hd section loop=$cate name=top}	
+				<li class='list-l1'>
+					<div class='list-l1-wrap'>
+						<h4><a href="{hd $smarty.const.__APP__}?c=category&cid={hd $cate[top].cid}">{hd $cate[top].title}</a></h4>
+						<ul class='list-l2'>
+						{hd section loop=$cate[top].son name=x max=3}
+							<li><a href="{hd $smarty.const.__APP__}?c=category&cid={hd $cate[top].cid}&pid={hd $cate[top].son[x].cid}">{hd $cate[top].son[x].title}</a></li>
+						{hd /section}
+						</ul>
+					</div>
+
+					<div class='list-more hidden'>
+						<ul>
+						{hd section loop=$cate[top].son name=x start=3}
+							<li><a href="{hd $smarty.const.__APP__}?c=category&cid={hd $cate[top].cid}&pid={hd $cate[top].son[x].cid}">{hd $cate[top].son[x].title}</a></li>
+						
+						 {hd /section }	
+						</ul>
+					</div>
+				</li>
+			{hd /section}
+
+
+				
+			</ul>
+		</div>
+
+		<div id='center'>
+			<div id='animate'>
+				<div class='imgs-wrap'>
+					<ul>
+						<li>
+							<a href=""><img src="{hd $smarty.const.__PUBLIC__}/Images/animate1.jpg" width='558' height='190'/></a>
+						</li>
+						<li>
+							<a href=""><img src="{hd $smarty.const.__PUBLIC__}/Images/animate2.jpg" width='558' height='190'/></a>
+						</li>
+						<li>
+							<a href=""><img src="{hd $smarty.const.__PUBLIC__}/Images/animate3.jpg" width='558' height='190'/></a>
+						</li>
+					</ul>
+				</div>
+				<ul class='ani-btn'>
+					<li class='ani-btn-cur'>0学费学习<i></i></li>
+					<li>超百G原创视频<i></i></li>
+					<li style='border:none'>有实力做后盾<i></i></li>
+				</ul>
+			</div>
+
+			<dl class='answer-list'>
+				<dt>
+					<span class='wait-as'>待解决问题</span>
+					<a href=''>更多>></a>
+				</dt>
+				{hd foreach from=$noselv item=v}
+				<dd>
+					<a href="{hd $smarty.const.__APP__}?c=answer&asid={hd $v.asid}">{hd $v.content}</a>
+					<span>{hd $v.answer}回答</span>
+				</dd>
+				{hd /foreach}
+			</dl>
+
+			<dl class='answer-list'>
+				<dt>
+					<span class='reward-as'>高分悬赏问题</span>
+					<a href=''>更多>></a>
+				</dt>
+				{hd foreach from=$more item=v}
+				<dd>
+					<a href="{hd $smarty.const.__APP__}?c=answer&asid={hd $v.asid}"><b>{hd $v.reward}</b>{hd $v.content}</a>
+					<span>{hd $v.answer}回答</span>
+				</dd>
+				{hd /foreach}
+			</dl>
+
+		</div>
+		{hd include file='../Common/right.html'}
+	</div>
+<!--------------------内容主体结束-------------------->
+	<div class='clear'></div>
+	
+{hd include file='../Common/footer.html'}
